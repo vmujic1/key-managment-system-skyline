@@ -46,5 +46,25 @@ namespace key_managment_system.Views
         {
 
         }
+
+        private void txtPwd_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtPwd_TextChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtUser_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtPwd_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
