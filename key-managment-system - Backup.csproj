@@ -10,9 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+    <None Remove="Images\logo1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+=======
 
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 
+>>>>>>> a234be77de520a1285e8b791869e62a0fcb987c8
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -20,6 +27,14 @@
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.0" />
 
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo1.png" />
   </ItemGroup>
 
 </Project>
