@@ -1,4 +1,4 @@
-﻿﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -8,6 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\logo1.png" />
+  </ItemGroup>
 
   <ItemGroup>
 
@@ -23,7 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Employee\" />
+    <Resource Include="Images\logo1.png" />
   </ItemGroup>
 
+
 </Project>
+
+
+
