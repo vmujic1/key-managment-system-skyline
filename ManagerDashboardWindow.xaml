@@ -17,20 +17,27 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="149*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Background="navy" Orientation="Horizontal"  >
+        <StackPanel Background="Navy" Orientation="Horizontal" HorizontalAlignment="Center" Width="8">
+        <StackPanel Background="navy" Orientation="Horizontal"  HorizontalAlignment="Center" 
+                     Grid.ColumnSpan="2" Margin="0,0,0,0">
             <Button Style="{StaticResource btnS}" Content="Visualisation"/>
             <Button Style="{StaticResource btnS}" Content="Reports"/>
             <Button Style="{StaticResource btnS}" Content="Add Employee"/>
             <Button Style="{StaticResource btnS}" Content="Edit Employee"/>
             <Button Style="{StaticResource btnS}" Content="Requests"/>
             <Button Style="{StaticResource btnS}" Content="Office Access"/>
-            
-            
+
+
         </StackPanel>
-     
+        </StackPanel>
+
     </Grid>
 </Window>
