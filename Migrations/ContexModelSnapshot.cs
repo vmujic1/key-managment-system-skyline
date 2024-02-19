@@ -9,7 +9,7 @@ using key_managment_system.DBContexts;
 
 namespace key_managment_system.Migrations
 {
-    [DbContext(typeof(Contex))]
+    [DbContext(typeof(Context))]
     partial class ContexModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace key_managment_system.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("KeyCards");
+                    b.ToTable("Keycards");
                 });
 
             modelBuilder.Entity("key_managment_system.Models.Record", b =>
@@ -99,8 +99,16 @@ namespace key_managment_system.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

@@ -16,7 +16,7 @@ namespace key_managment_system.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "KeyCards",
+                name: "Keycards",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -27,7 +27,7 @@ namespace key_managment_system.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_KeyCards", x => x.Id);
+                    table.PrimaryKey("PK_Keycards", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -53,6 +53,10 @@ namespace key_managment_system.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Username = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Password = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     FirstName = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     LastName = table.Column<string>(type: "longtext", nullable: false)
@@ -66,9 +70,9 @@ namespace key_managment_system.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_KeyCards_KeycardId",
+                        name: "FK_Users_Keycards_KeycardId",
                         column: x => x.KeycardId,
-                        principalTable: "KeyCards",
+                        principalTable: "Keycards",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -121,7 +125,7 @@ namespace key_managment_system.Migrations
                 name: "Rooms");
 
             migrationBuilder.DropTable(
-                name: "KeyCards");
+                name: "Keycards");
         }
     }
 }

@@ -1,10 +1,15 @@
 ﻿using key_managment_system.DBContexts;
+using key_managment_system.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Xml;
 
 namespace key_managment_system.ViewModels
 {
@@ -17,7 +22,7 @@ namespace key_managment_system.ViewModels
 
         public string Username { get => _username; set { _username = value; OnPropertyChanged(nameof(Username));}}
         public string Password { get => _password; set { _password = value; OnPropertyChanged(nameof(Password));}}
-        public string ErrMsg { get => _errMsg; set { _errMsg = value; OnPropertyChanged(nameof(ErrMsg));}}
+        public string ErrorMessage { get => _errMsg; set { _errMsg = value; OnPropertyChanged(nameof(ErrorMessage));}}
         public bool IsViewVisible { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible));}}
 
         public ICommand LoginCommand { get;}
@@ -41,10 +46,33 @@ namespace key_managment_system.ViewModels
             return validData;
         }
 
-        private void ExecuteLoginCommand(object obj)
+        private async void ExecuteLoginCommand(object obj)
         {
-           Contex contex = new Contex();
-          
+            var context = new Context();
+            List<User> users = await context.Users.ToListAsync();
+            bool correctCredentials = false;
+
+            foreach(var user in users)
+            {
+                if(user.Username.Equals(Username) && user.Password.Equals(Password))
+                {
+                    correctCredentials = true;
+                    
+                    break;
+                }
+                
+            }
+
+            if(correctCredentials) { MessageBox.Show("Logovan!"); } else
+            {
+                MessageBox.Show("Greska");
+            }
+
+
+
+
+
+
         }
     }
 }

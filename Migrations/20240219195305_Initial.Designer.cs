@@ -10,8 +10,8 @@ using key_managment_system.DBContexts;
 
 namespace key_managment_system.Migrations
 {
-    [DbContext(typeof(Contex))]
-    [Migration("20240219112402_Initial")]
+    [DbContext(typeof(Context))]
+    [Migration("20240219195305_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -37,7 +37,7 @@ namespace key_managment_system.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("KeyCards");
+                    b.ToTable("Keycards");
                 });
 
             modelBuilder.Entity("key_managment_system.Models.Record", b =>
@@ -102,8 +102,16 @@ namespace key_managment_system.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
