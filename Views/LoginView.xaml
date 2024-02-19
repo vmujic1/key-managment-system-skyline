@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:key_managment_system.Views"
+        xmlns:local="clr-namespace:key_managment_system.Views" 
+        xmlns:viewModel="clr-namespace:key_managment_system.ViewModels" 
+        xmlns:customcontrols="clr-namespace:key_managment_system.CustomControls"
         mc:Ignorable="d"
         Title="LoginView" Height="550" Width="800"
         WindowStyle="None"
@@ -13,17 +15,17 @@
         AllowsTransparency="True"
         MouseDown="Window_MouseDown"
         >
-   <!-- <Window.DataContext>  -->
-    <!--    <viewModel:LoginViewModel/>  -->
-   <!-- </Window.DataContext> -->
+ <Window.DataContext>  
+       <viewModel:LoginViewModel/> 
+   </Window.DataContext> 
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
     </Window.Resources>
 
- <!--   <Window.Visibility> -->
-   <!--       <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>  -->
-   <!--   </Window.Visibility>  -->
+    <Window.Visibility> 
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>  
+     </Window.Visibility> 
 
     <Border CornerRadius="12">
         <Border CornerRadius="10"                    
@@ -169,7 +171,7 @@
                              Height="28"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
-                             Padding="20,0,0,0" TextChanged="txtUser_TextChanged">
+                             Padding="5,0,0,0" TextChanged="txtUser_TextChanged">
 
                         
                     </TextBox>
@@ -182,33 +184,21 @@
                                Margin="0,35,0,0"/>
                     
 
-                  <!--  <customcontrols:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  -->
-                                                  <!--      Height="28"       -->                      
-                                                  <!--       Margin="0,5,0,0">  -->
-                    <!--    </customcontrols:BindablePasswordBox> -->
+              
+                   
 
+                    <customcontrols:CustomPasswordBox 
+                        Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     
+                     />
                     <TextBlock Text="{Binding ErrorMessage}"
-                               Foreground="#D7596D"
-                               FontSize="12"
-                               FontWeight="Medium"
-                               FontFamily="Montserrat"                             
-                               Margin="0,0,0,0"
-                               TextWrapping="Wrap"
-                               Visibility="Collapsed"/>
-
-                    <PasswordBox x:Name="txtPwd"
-             FontSize="13"
-             FontWeight="Medium"
-             FontFamily="Montserrat"                            
-             Foreground="Black"
-             CaretBrush="LightGray"
-             BorderBrush="DarkGray"
-             BorderThickness="0,0,0,2"
-             Height="28"
-             VerticalContentAlignment="Center"
-             Margin="0,5,0,0"
-             Padding="20,0,0,0" 
-             PasswordChanged="txtPwd_PasswordChanged" />
+                    Foreground="#D7596D"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                             
+                    Margin="0,0,0,0"
+                    TextWrapping="Wrap"
+                    />  
 
 
                     <Button x:Name="btnLogin" 
@@ -219,7 +209,8 @@
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"                           
-                            Margin="0,30,0,0" Click="btnLogin_Click">
+                            Margin="0,30,0,0" 
+                            >
 
                         <Button.Style>
                             <Style TargetType="Button">
