@@ -12,26 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace key_managment_system
+namespace key_managment_system.Views
 {
     /// <summary>
-    /// Interaction logic for ManagerDashboardWindow.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class ManagerDashboardWindow : Window
+    public partial class MainView : Window
     {
-        public ManagerDashboardWindow()
+        public MainView()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void actionTest(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Collapsed;
         }
     }
 }

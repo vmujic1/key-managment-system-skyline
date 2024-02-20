@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace key_managment_system.DBContexts
 {
-    public class Contex : DbContext
+    public class Context : DbContext
     {
-        public Contex()
+        public Context()
         {
             
         }
-        public Contex(DbContextOptions options) : base(options)
+        public Context(DbContextOptions options) : base(options)
         {
             
         }
@@ -24,7 +24,7 @@ namespace key_managment_system.DBContexts
         public DbSet<User> Users { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Record> Records { get; set; }
-        public DbSet<Keycard> KeyCards { get; set; }
+        public DbSet<Keycard> Keycards { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
