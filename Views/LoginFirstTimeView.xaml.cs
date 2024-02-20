@@ -1,5 +1,4 @@
-﻿using key_managment_system.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,24 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace key_managment_system.Views
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for LoginFirstTimeView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class LoginFirstTimeView : Window
     {
-        public LoginView()
+        public LoginFirstTimeView()
         {
             InitializeComponent();
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
             }
@@ -44,17 +41,7 @@ namespace key_managment_system.Views
             Application.Current.Shutdown();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void txtPwd_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtPwd_TextChanged(object sender, RoutedEventArgs e)
+        private void rfid_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
@@ -64,22 +51,9 @@ namespace key_managment_system.Views
 
         }
 
-        private void txtPwd_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void PrijaviSe(object sender, MouseButtonEventArgs e)
         {
-            LoginFirstTimeView man = new LoginFirstTimeView();
-            this.Visibility = Visibility.Hidden;
-            man.Show();
 
         }
-
-        private AddEmployee existingView;  // Assuming you have an instance of ExistingView
-
-       
     }
 }
-;
