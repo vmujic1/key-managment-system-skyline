@@ -57,14 +57,15 @@ namespace key_managment_system.ViewModels
         private async void ExecuteAddUserCommand(object obj)
         {
             var context = new Context();
-            List<User> users = await context.Users.ToListAsync();
             List<Keycard> keycards = await context.Keycards.ToListAsync();
             bool keycardExists = false;
+
 
             foreach (var keycard in keycards)
             {
                 if (keycard.SerialNumber.Equals(KeycardId))
                 {
+
                     keycardExists = true;
                     break;
                 }
@@ -116,8 +117,15 @@ namespace key_managment_system.ViewModels
                 user.Keycard = keycard;
                 user.Role = role;
 
+                ErrorMessage = "";
                 await context.Users.AddAsync(user);
                 await context.SaveChangesAsync();
+
+                FirstName = "";
+                LastName = "";
+                Email = "";
+                KeycardId = "";
+                Role = "";
             }
             else
             {
