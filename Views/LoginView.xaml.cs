@@ -76,10 +76,6 @@ namespace key_managment_system.Views
             man.Show();
 
         }
-
-        private AddEmployee existingView;  // Assuming you have an instance of ExistingView
-
-       
     }
 }
 ;

@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\add-user-logo.png" />
     <None Remove="Images\logo1.png" />
   </ItemGroup>
 
@@ -27,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\add-user-logo.png" />
     <Resource Include="Images\logo1.png" />
   </ItemGroup>
 

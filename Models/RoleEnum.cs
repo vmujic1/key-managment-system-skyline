@@ -8,8 +8,8 @@ namespace key_managment_system.Models
 {
     public enum RoleEnum
     {
-        Administrator,
-        Manager,
-        Employee
+        Administrator= 2,
+        Manager=1,
+        Employee = 0
     }
 }
