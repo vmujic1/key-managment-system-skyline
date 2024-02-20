@@ -18,10 +18,18 @@ namespace key_managment_system.Views.Manager
     /// <summary>
     /// Interaction logic for EditPage.xaml
     /// </summary>
-    public partial class EditPage : Page
+    public partial class EditWindow : Window
     {
-        public EditPage()
+        private int id;
+
+        public EditWindow()
         {
+            InitializeComponent();
+        }
+
+        public EditWindow(int id)
+        {
+            this.id = id;
             InitializeComponent();
         }
 

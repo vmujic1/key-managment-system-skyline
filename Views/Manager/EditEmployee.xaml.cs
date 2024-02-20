@@ -43,10 +43,14 @@ namespace key_managment_system.Views.Manager
             DataGrid.ItemsSource = Users;
         }
 
-        private async Task UpdateUser(object sender, RoutedEventArgs e)
+  
+
+        private void UpdateUser(object sender, RoutedEventArgs e)
         {
-
-
+            int Id = (int)((Button)sender).CommandParameter;
+            MessageBox.Show(Id.ToString());
+            EditWindow edit = new EditWindow(Id);
+            edit.Show();
 
         }
     }

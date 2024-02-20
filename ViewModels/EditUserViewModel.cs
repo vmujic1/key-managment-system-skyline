@@ -39,8 +39,8 @@ namespace key_managment_system.ViewModels
             var test = await (from k in context.Keycards
                        join u in context.Users
                           on k.Id equals u.Keycard.Id
-                       select new { u.FirstName, u.LastName, Rfid = k.SerialNumber }).ToListAsync();
-            var users = test.Select(x => new EditEmployeeDTO { FirstName = x.FirstName, LastName = x.LastName, Rfid = x.Rfid }).ToList();
+                       select new { u.Id,u.FirstName, u.LastName, Rfid = k.SerialNumber }).ToListAsync();
+            var users = test.Select(x => new EditEmployeeDTO { Id = x.Id,FirstName = x.FirstName, LastName = x.LastName, Rfid = x.Rfid }).ToList();
 
             return users;
         }

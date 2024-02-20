@@ -27,7 +27,7 @@
                     <DataGridTemplateColumn Header="Action">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Update" Click="UpdateUser"></Button>
+                                <Button Content="Update" Click="UpdateUser" CommandParameter="{Binding Path=Id}"></Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
