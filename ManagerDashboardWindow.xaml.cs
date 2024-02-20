@@ -1,4 +1,5 @@
-﻿using System;
+﻿using key_managment_system.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,10 @@ namespace key_managment_system
         public ManagerDashboardWindow()
         {
             InitializeComponent();
+
+            this.DataContext = new ManagerVM();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

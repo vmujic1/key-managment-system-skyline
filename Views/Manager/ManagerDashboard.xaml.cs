@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace key_managment_system.Pages
+namespace key_managment_system.Views.Manager
 {
     /// <summary>
-    /// Interaction logic for ReportsManager.xaml
+    /// Interaction logic for ManagerDashboard.xaml
     /// </summary>
-    public partial class ReportsManager : Page
+    public partial class ManagerDashboard : Window
     {
-        public ReportsManager()
+        public ManagerDashboard()
         {
             InitializeComponent();
         }

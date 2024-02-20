@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:key_managment_system"
+        xmlns:pages="clr-namespace:key_managment_system.Views.Manager"
         mc:Ignorable="d"
         Title="ManagerDashboardWindow" Height="450" Width="800">
     <Window.Resources>
@@ -22,41 +23,48 @@
                 <Setter Property="Margin" Value="0,5"/>
                 <Setter Property="Background" Value="WhiteSmoke"/>
             </Style>
+
+            <DataTemplate x:Key="pAddEmployee">
+                <pages:AddEmployee />
+            </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
-            
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Background="Navy">
         <StackPanel Background="navy" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Style="{StaticResource btnS}" Content="Visualisation"/>
-            <Button Style="{StaticResource btnS}" Content="Reports"/>
-            <Button Style="{StaticResource btnS}" Content="Add Employee"/>
-            <Button Style="{StaticResource btnS}" Content="Edit Employee"/>
-            <Button Style="{StaticResource btnS}" Content="Requests"/>
-            <Button Style="{StaticResource btnS}" Content="Office Access"/>
-            <Button Style="{StaticResource btnS}" Content="Log Out"/>
+            <Button Style="{StaticResource btnS}" Content="Visualisation" Command="{Binding CMDChangePage}" CommandParameter="{x:Static local:ManagerPageId.Visualisation}"/>
+                <Button Style="{StaticResource btnS}" Content="Reports" Command="{Binding CMDChangePage}" CommandParameter="{x:Static local:ManagerPageId.Reports}"/>
+                <Button Style="{StaticResource btnS}" Content="Add Employee" Command="{Binding CMDChangePage}" CommandParameter="{x:Static local:ManagerPageId.AddEmployee}"/>
+                <Button Style="{StaticResource btnS}" Content="Edit Employee" Command="{Binding CMDChangePage}" CommandParameter="{x:Static local:ManagerPageId.EditEmployee}"/>
+                <Button Style="{StaticResource btnS}" Content="Requests" Command="{Binding CMDChangePage}" CommandParameter="{x:Static local:ManagerPageId.Requests}"/>
+                <Button Style="{StaticResource btnS}" Content="Office Access" Command="{Binding CMDChangePage}" CommandParameter="{x:Static local:ManagerPageId.OfficeAccess}"/>
+                <Button Style="{StaticResource btnS}" Content="Log Out"/>
 
 
         </StackPanel>
         </Grid>
 
-        <StackPanel Margin="50,80,0,-371" HorizontalAlignment="Left">
-            <Button Style="{StaticResource btnM}" Content="Office 1"/>
-            <Button Style="{StaticResource btnM}" Content="Office 2"/>
-            <Button Style="{StaticResource btnM}" Content="Office 3"/>
-            <Button Style="{StaticResource btnM}" Content="Office 4"/>
-            <Button Style="{StaticResource btnM}" Content="Office 5"/>
-            <Button Style="{StaticResource btnM}" Content="Office 6"/>
-            <Button Style="{StaticResource btnM}" Content="Office 7"/>
-            <Button Style="{StaticResource btnM}" Content="Office 8"/>
-            <Button Style="{StaticResource btnM}" Content="Office 9"/>
-            <Button Style="{StaticResource btnM}" Content="Office 10"/>
-            <Button Style="{StaticResource btnM}" Content="Office 11"/>
-        </StackPanel>
+        
+
+        <ContentControl Grid.Row="1">
+            <ContentControl.Style>
+         
+                <Style TargetType="{x:Type ContentControl}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding PageID,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged}" Value="{x:Static local:ManagerPageId.AddEmployee}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource pAddEmployee}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                    
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+
     </Grid>
-    
-    
+
+
 </Window>
