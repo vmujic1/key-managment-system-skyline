@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace key_managment_system
+namespace key_managment_system.Views
 {
     /// <summary>
-    /// Interaction logic for EmployeeDashboardWindow.xaml
+    /// Interaction logic for EmployeeDashboardWindowxaml.xaml
     /// </summary>
-    public partial class EmployeeDashboardWindow : Page
+    public partial class EmployeeDashboardWindowxaml : Window
     {
-        public EmployeeDashboardWindow()
+        public EmployeeDashboardWindowxaml()
         {
             InitializeComponent();
         }
