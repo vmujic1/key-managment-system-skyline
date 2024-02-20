@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace key_managment_system.Views
 {
     /// <summary>
-    /// Interaction logic for EmployeeDashboardWindowxaml.xaml
+    /// Interaction logic for EmployeeDashboard.xaml
     /// </summary>
-    public partial class EmployeeDashboardWindowxaml : Window
+    public partial class EmployeeDashboard : Window
     {
-        public EmployeeDashboardWindowxaml()
+        public EmployeeDashboard()
         {
             InitializeComponent();
         }

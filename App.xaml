@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:key_managment_system"
              StartupUri="Views/LoginView.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/Styles/ButtonStyles.xaml">
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
