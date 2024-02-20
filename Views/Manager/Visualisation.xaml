@@ -5,8 +5,76 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:key_managment_system.Views.Manager"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800">
     <Grid Background="GhostWhite">
-            
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="540" Margin="35,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="734" RenderTransformOrigin="1.166,0.461"/>
+        <Rectangle Fill="LightBlue" HorizontalAlignment="Left" Height="151" Margin="35,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" RadiusX="0" RadiusY="0"/>
+        <Rectangle Fill="Blue" HorizontalAlignment="Left" Height="75" Margin="335,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
+        <Rectangle Fill="DeepSkyBlue" HorizontalAlignment="Left" Height="76" Margin="335,116,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
+        <Rectangle Fill="CadetBlue" HorizontalAlignment="Left" Height="113" Margin="405,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle Fill="MidnightBlue" HorizontalAlignment="Left" Height="185" Margin="279,192,0,0" Stroke="Black" VerticalAlignment="Top" Width="236"/>
+        <Rectangle Fill="LightSteelBlue" HorizontalAlignment="Left" Height="130" Margin="279,451,0,0" Stroke="Black" VerticalAlignment="Top" Width="126"/>
+        <Rectangle Fill="PowderBlue" HorizontalAlignment="Left" Height="130" Margin="405,451,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle Fill="LightSlateGray" HorizontalAlignment="Left" Height="65" Margin="35,516,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+        <Rectangle Fill="SlateBlue" HorizontalAlignment="Left" Height="65" Margin="515,516,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+        <Rectangle Fill="LightSkyBlue" HorizontalAlignment="Left" Height="172" Margin="659,409,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle Fill="CornflowerBlue" HorizontalAlignment="Left" Height="185" Margin="659,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="199,177,0,0" VerticalAlignment="Top"/>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="316,149,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="316,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="493,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="637,265,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="639,424,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="53,506,0,0" VerticalAlignment="Top" />
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="322,441,0,0" VerticalAlignment="Top"/>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="440,441,0,0" VerticalAlignment="Top"/>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="533,501,0,0" VerticalAlignment="Top"/>
+        <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="291,362,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </UserControl>
