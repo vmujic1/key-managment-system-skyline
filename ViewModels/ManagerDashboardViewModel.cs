@@ -16,7 +16,14 @@ namespace key_managment_system.ViewModels
         {
             ShowVisualisationCommand = new ViewModelCommand(ExecuteVisualisationCommand);
             ShowReportsCommand = new ViewModelCommand(ExecuteReportsCommand);
+            ShowAddUserCommand = new ViewModelCommand(ExecuteShowAddUserCommand);
+
             ExecuteVisualisationCommand(null);
+        }
+
+        private void ExecuteShowAddUserCommand(object obj)
+        {
+            CurrentChildView = new AddUserViewModel();
         }
 
         private void ExecuteReportsCommand(object obj)
@@ -40,5 +47,6 @@ namespace key_managment_system.ViewModels
        
         public ICommand ShowVisualisationCommand { get; }
         public ICommand ShowReportsCommand { get; }
+        public ICommand ShowAddUserCommand { get; }
     }
 }

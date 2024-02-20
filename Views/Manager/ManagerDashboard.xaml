@@ -22,6 +22,10 @@
         <DataTemplate DataType="{x:Type viewModel:ReportsViewModel}">
             <local:Reports/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:AddUserViewModel}">
+            <local:AddEmployee/>
+
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="10" BorderThickness="1"  BorderBrush="WhiteSmoke">
@@ -53,7 +57,8 @@
                         </StackPanel>
 
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowAddUserCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource menuButtonText}" Text="Add Employee"></TextBlock>
                         </StackPanel>

@@ -16,12 +16,13 @@ using System.Windows.Shapes;
 namespace key_managment_system.Views.Manager
 {
     /// <summary>
-    /// Interaction logic for AddUser.xaml
+    /// Interaction logic for AddEmployee.xaml
     /// </summary>
-    public partial class AddUser : UserControl
+    public partial class AddEmployee : UserControl
     {
-        public AddUser()
+        public AddEmployee()
         {
+            InitializeComponent();
         }
     }
 }
