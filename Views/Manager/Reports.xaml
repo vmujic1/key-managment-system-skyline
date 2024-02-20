@@ -12,7 +12,7 @@
         <Grid.Resources>
             <!-- Style for DataGridColumnHeader -->
             <Style TargetType="DataGridColumnHeader">
-                <Setter Property="Background" Value="#ff2c3e50"/>
+                <Setter Property="Background" Value="Navy"/>
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="FontSize" Value="12"/>
                 <Setter Property="FontWeight" Value="Bold"/>
@@ -23,10 +23,10 @@
 
             <!-- Style for DataGrid -->
             <Style TargetType="DataGrid">
-                <Setter Property="VerticalGridLinesBrush" Value="#4b6584"/>
-                <Setter Property="HorizontalGridLinesBrush" Value="#4b6584"/>
-                <Setter Property="AlternatingRowBackground" Value="#ff2c3e50"/>
-                <Setter Property="RowBackground" Value="#34495e"/>
+                <Setter Property="VerticalGridLinesBrush" Value="White"/>
+                <Setter Property="HorizontalGridLinesBrush" Value="White"/>
+                <Setter Property="AlternatingRowBackground" Value="Navy"/>
+                <Setter Property="RowBackground" Value="#1C30D9"/>
                 <Setter Property="RowHeight" Value="25"/>
                 <Setter Property="RowHeaderWidth" Value="0"/>
                 <Setter Property="Foreground" Value="White"/>
