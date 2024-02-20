@@ -12,26 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace key_managment_system
+namespace key_managment_system.Views.Manager
 {
     /// <summary>
-    /// Interaction logic for ManagerDashboardWindow.xaml
+    /// Interaction logic for ManagerDashboard.xaml
     /// </summary>
-    public partial class ManagerDashboardWindow : Window
+    public partial class ManagerDashboard : Window
     {
-        public ManagerDashboardWindow()
+        public ManagerDashboard()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-
+            this.WindowState = WindowState.Minimized;
         }
 
-        private void actionTest(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            Application.Current.Shutdown(); 
         }
     }
 }

@@ -22,7 +22,6 @@ namespace key_managment_system.Views.Manager
     {
         public AddUser()
         {
-            InitializeComponent();
         }
     }
 }
