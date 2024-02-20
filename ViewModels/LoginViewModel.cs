@@ -53,7 +53,15 @@ namespace key_managment_system.ViewModels
         private async void ExcuteCreateAccount(object obj)
         {
             var context = new Context();
-            User? user = await context.Users.Where(e => e.Keycard.SerialNumber.Equals(Rfid)).FirstOrDefaultAsync();
+            var keycard = await context.Keycards.FirstOrDefaultAsync(k => string.Equals(k.SerialNumber, rfid));
+
+            if(keycard is null)
+            {
+                // TODO
+                return;
+            }
+
+            User? user = await context.Users.FirstOrDefaultAsync(e => e.KeycardId == keycard.Id);
             List<Keycard> cards = await context.Keycards.ToListAsync();
 
             if (user != null)
