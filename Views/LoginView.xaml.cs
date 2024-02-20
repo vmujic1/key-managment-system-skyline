@@ -1,4 +1,5 @@
-﻿using System;
+﻿using key_managment_system.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace key_managment_system.Views
@@ -66,5 +68,19 @@ namespace key_managment_system.Views
         {
             
         }
+
+        private void PrijaviSe(object sender, MouseButtonEventArgs e)
+        {
+            ManagerDashboardWindow man = new ManagerDashboardWindow();
+            this.Visibility = Visibility.Hidden;
+            ManagerDashboardWindow addEmployeePage = new ManagerDashboardWindow();
+            man.Show();
+
+        }
+
+        private AddEmployee existingView;  // Assuming you have an instance of ExistingView
+
+       
     }
 }
+;

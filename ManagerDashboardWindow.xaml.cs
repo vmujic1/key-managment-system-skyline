@@ -28,5 +28,10 @@ namespace key_managment_system
         {
 
         }
+
+        private void actionTest(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
     }
 }

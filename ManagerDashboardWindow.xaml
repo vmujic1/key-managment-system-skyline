@@ -38,6 +38,7 @@
 
         </StackPanel>
         </StackPanel>
+        <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="127,68,0,0" Grid.Row="1" VerticalAlignment="Top" Click="actionTest"/>
 
     </Grid>
 </Window>

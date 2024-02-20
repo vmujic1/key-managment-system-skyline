@@ -63,8 +63,22 @@ namespace key_managment_system.ViewModels
                 
             }
 
-            if(correctCredentials) { MessageBox.Show("Logovan!"); } else
+            if(correctCredentials) {
+
+
+                this.IsViewVisible = false;
+                ManagerDashboardWindow man = new ManagerDashboardWindow();
+                man.Visibility = Visibility.Visible;
+
+            
+            
+            } else
+
+
             {
+
+                ErrorMessage = "Invalid credentials!";
+     
                 MessageBox.Show("Greska");
             }
 
