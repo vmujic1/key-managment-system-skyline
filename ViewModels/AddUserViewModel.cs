@@ -1,51 +1,56 @@
 ﻿using key_managment_system.DBContexts;
 using key_managment_system.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Windows;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
-using System.Windows.Controls;
+using System.Windows;
+using System.Windows.Input;
 
 namespace key_managment_system.ViewModels
 {
     public class AddUserViewModel : ViewModelBase
     {
-        private string _firstname;
-        private string _lastname;
-        private string _email;
-        private string _keycardid;
-        private string _role;
         public string _errMsg;
+        private string _email;
+        private string _firstname;
         private bool _isViewVisible = true;
-
-        public string FirstName { get => _firstname; set { _firstname = value; OnPropertyChanged(nameof(FirstName)); } }
-        public string LastName { get => _lastname; set { _lastname = value; OnPropertyChanged(nameof(LastName)); } }
-        public string Email { get => _email; set { _email = value; OnPropertyChanged(nameof(Email)); } }
-        public string KeycardId { get => _keycardid; set { _keycardid = value; OnPropertyChanged(nameof(KeycardId)); } }
-        public string Role { get => _role; set { _role = value; OnPropertyChanged(nameof(Role)); } }
-
-        public string ErrorMessage { get => _errMsg; set { _errMsg = value; OnPropertyChanged(nameof(ErrorMessage)); } }
-        public bool IsViewVisible { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
-
-        public ICommand AddUserCommand { get; }
+        private string _keycardid;
+        private string _lastname;
+        private string _role;
 
         public AddUserViewModel()
         {
             AddUserCommand = new ViewModelCommand(ExecuteAddUserCommand, CanExecuteAddUserCommand);
         }
 
+        public ICommand AddUserCommand { get; }
+
+        public string Email
+        { get => _email; set { _email = value; OnPropertyChanged(nameof(Email)); } }
+
+        public string ErrorMessage
+        { get => _errMsg; set { _errMsg = value; OnPropertyChanged(nameof(ErrorMessage)); } }
+
+        public string FirstName
+        { get => _firstname; set { _firstname = value; OnPropertyChanged(nameof(FirstName)); } }
+
+        public bool IsViewVisible
+        { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
+
+        public string KeycardId
+        { get => _keycardid; set { _keycardid = value; OnPropertyChanged(nameof(KeycardId)); } }
+
+        public string LastName
+        { get => _lastname; set { _lastname = value; OnPropertyChanged(nameof(LastName)); } }
+
+        public string Role
+        { get => _role; set { _role = value; OnPropertyChanged(nameof(Role)); } }
+
         private bool CanExecuteAddUserCommand(object obj)
         {
             bool validData;
-            if (string.IsNullOrEmpty(FirstName) || 
+            if (string.IsNullOrEmpty(FirstName) ||
                 string.IsNullOrEmpty(LastName) ||
                 string.IsNullOrEmpty(Email) ||
-                string.IsNullOrEmpty(KeycardId)) 
+                string.IsNullOrEmpty(KeycardId))
             {
                 validData = false;
             }
@@ -69,7 +74,6 @@ namespace key_managment_system.ViewModels
                     keycardExists = true;
                     break;
                 }
-
             }
 
             if (!keycardExists)
@@ -84,18 +88,19 @@ namespace key_managment_system.ViewModels
                 AccessLevelEnum accessLevel;
                 RoleEnum role;
 
-                if (Role.ToString() ==  RoleEnum.Manager.ToString())
+                if (Role.ToString() == RoleEnum.Manager.ToString())
                 {
                     MessageBox.Show("BRAO");
 
-                    accessLevel = AccessLevelEnum.Medium; 
+                    accessLevel = AccessLevelEnum.Medium;
                     role = RoleEnum.Manager;
                 }
-                else if(Role.ToString() == RoleEnum.Employee.ToString()) 
+                else if (Role.ToString() == RoleEnum.Employee.ToString())
                 {
                     accessLevel = AccessLevelEnum.Low;
                     role = RoleEnum.Employee;
-                } else
+                }
+                else
                 {
                     ErrorMessage = "Invalid role!";
                     return;
@@ -108,14 +113,14 @@ namespace key_managment_system.ViewModels
                 await context.Keycards.AddAsync(keycard);
                 await context.SaveChangesAsync();
 
-                User user = new User();
-
-
-                user.FirstName = a;
-                user.LastName = b;
-                user.Email = c;
-                user.Keycard = keycard;
-                user.Role = role;
+                User user = new User
+                {
+                    FirstName = a,
+                    LastName = b,
+                    Email = c,
+                    Keycard = keycard,
+                    Role = role,
+                };
 
                 ErrorMessage = "";
                 await context.Users.AddAsync(user);

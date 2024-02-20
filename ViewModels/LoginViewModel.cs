@@ -24,12 +24,17 @@ namespace key_managment_system.ViewModels
         private bool _isViewVisible = true;
         private string rfid;
 
-        public string Rfid { get => rfid; set { rfid = value; OnPropertyChanged(nameof(Rfid)); } }
+        public string Rfid
+        { get => rfid; set { rfid = value; OnPropertyChanged(nameof(Rfid)); } }
 
-        public string Username { get => _username; set { _username = value; OnPropertyChanged(nameof(Username)); } }
-        public string Password { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
-        public string ErrorMessage { get => _errMsg; set { _errMsg = value; OnPropertyChanged(nameof(ErrorMessage));}}
-        public bool IsViewVisible { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
+        public string Username
+        { get => _username; set { _username = value; OnPropertyChanged(nameof(Username)); } }
+        public string Password
+        { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
+        public string ErrorMessage
+        { get => _errMsg; set { _errMsg = value; OnPropertyChanged(nameof(ErrorMessage)); } }
+        public bool IsViewVisible
+        { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
 
         public ICommand LoginCommand { get; }
         public ICommand CreateAccountCommand { get; }
@@ -38,7 +43,6 @@ namespace key_managment_system.ViewModels
         {
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             CreateAccountCommand = new ViewModelCommand(ExcuteCreateAccount, CanExecuteCreateAccount);
-
         }
 
         private bool CanExecuteCreateAccount(object obj)
@@ -52,20 +56,12 @@ namespace key_managment_system.ViewModels
             User? user = await context.Users.Where(e => e.Keycard.SerialNumber.Equals(Rfid)).FirstOrDefaultAsync();
             List<Keycard> cards = await context.Keycards.ToListAsync();
 
-
-
             if (user != null)
             {
                 user.Username = Username;
                 user.Password = Password;
-                context.SaveChangesAsync();
-
-
+                await context.SaveChangesAsync();
             }
-
-
-
-
         }
 
         private bool CanExecuteLoginCommand(object obj)
@@ -112,20 +108,8 @@ namespace key_managment_system.ViewModels
             }
             else
             {
-
                 ErrorMessage = "Invalid credentials!";
-
             }
-
-
-
-
-
-
         }
-
-
-
-
     }
 }
