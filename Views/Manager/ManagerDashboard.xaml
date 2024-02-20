@@ -49,7 +49,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Command="{Binding ShowReportsCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource menuButtonText}" Text="Reports"></TextBlock>
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Summary of keycard usage"></TextBlock>
                         </StackPanel>
 
                     </RadioButton>
