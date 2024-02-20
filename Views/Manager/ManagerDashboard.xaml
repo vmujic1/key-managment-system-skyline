@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:key_managment_system.Views.Manager"
         mc:Ignorable="d"
         Title="ManagerDashboard" Height="450" Width="800"
-        Background="Transparent">
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
 
     <Border CornerRadius="10" BorderThickness="1"  BorderBrush="WhiteSmoke">
-
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="350"/>
@@ -19,15 +22,63 @@
             <Border CornerRadius="10,0,0,10" Grid.Column="0" Background="Navy" BorderThickness="1" BorderBrush="WhiteSmoke">
 
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="35" Margin="15,25,0,40"></StackPanel>
+                    <StackPanel  Orientation="Horizontal" Height="200" Margin="0,0,0,25" HorizontalAlignment="Center">
+                        <Image  Source="../../Images/Logo3.png"></Image>
+                    </StackPanel>
+
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Visualisation"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Reports"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Add Employee"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Edit Employee"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Requests"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Office Access"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Log Out"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
                 </StackPanel>
+                
+                
                 
                 
                 
                 
             </Border>
 
-            <Border CornerRadius="0,10,10,0" Grid.Column="1" Background="#192BC2" BorderThickness="1" BorderBrush="WhiteSmoke">
+            <Border CornerRadius="0,10,10,0" Grid.Column="1" Background="WhiteSmoke" BorderThickness="1" BorderBrush="WhiteSmoke">
                 
             </Border>
         </Grid>

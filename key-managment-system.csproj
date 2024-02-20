@@ -11,11 +11,18 @@
 
   <ItemGroup>
     <None Remove="Images\logo1.png" />
+    <None Remove="Images\logo2.jpg" />
+    <None Remove="Images\Logo3.jpg" />
+    <None Remove="Images\Logo3.png" />
   </ItemGroup>
 
   <ItemGroup>
 
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+
+    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
+
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
 
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
@@ -28,6 +35,8 @@
 
   <ItemGroup>
     <Resource Include="Images\logo1.png" />
+    <Resource Include="Images\logo2.jpg" />
+    <Resource Include="Images\Logo3.png" />
   </ItemGroup>
 
 
