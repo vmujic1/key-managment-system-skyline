@@ -4,12 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:key_managment_system.Views.Manager"
+        xmlns:viewModel="clr-namespace:key_managment_system.ViewModels"
         mc:Ignorable="d"
         Title="ManagerDashboard" Height="450" Width="800"
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
+    <Window.DataContext>
+        <viewModel:ManagerDashboardViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:VisualisationViewModel}">
+            <local:Visualisation/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ReportsViewModel}">
+            <local:Reports/>
+        </DataTemplate>
+    </Window.Resources>
 
     <Border CornerRadius="10" BorderThickness="1"  BorderBrush="WhiteSmoke">
         
@@ -26,13 +39,15 @@
                         <Image  Source="../../Images/Logo3.png"></Image>
                     </StackPanel>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowVisualisationCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource menuButtonText}" Text="Visualisation"></TextBlock>
                         </StackPanel>
 
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowReportsCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource menuButtonText}" Text="Reports"></TextBlock>
                         </StackPanel>
@@ -163,7 +178,8 @@
                 </Grid>
                 
             </Border>
-            <ContentControl Grid.Column="1"
+            <ContentControl Content="{Binding CurrentChildView}"
+                Grid.Column="1"
                   Margin="10,50,10,20">
                 
             </ContentControl>
