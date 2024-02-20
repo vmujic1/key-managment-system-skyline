@@ -24,5 +24,7 @@ namespace key_managment_system.Views.Manager
         {
             InitializeComponent();
         }
+
+        
     }
 }
