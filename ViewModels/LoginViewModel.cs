@@ -1,5 +1,6 @@
 ﻿using key_managment_system.DBContexts;
 using key_managment_system.Models;
+using key_managment_system.Views.Manager;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -106,7 +107,7 @@ namespace key_managment_system.ViewModels
             if (correctCredentials)
             {
                 this.IsViewVisible = false;
-                ManagerDashboardWindow man = new ManagerDashboardWindow();
+                ManagerDashboard man = new ManagerDashboard();
                 man.Visibility = Visibility.Visible;
             }
             else

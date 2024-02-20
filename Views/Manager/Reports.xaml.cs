@@ -16,19 +16,12 @@ using System.Windows.Shapes;
 namespace key_managment_system.Views.Manager
 {
     /// <summary>
-<<<<<<<< HEAD:Views/Manager/AddUser.xaml.cs
-    /// Interaction logic for AddUser.xaml
-    /// </summary>
-    public partial class AddUser : Page
-    {
-        public AddUser()
-========
+
     /// Interaction logic for Reports.xaml
     /// </summary>
     public partial class Reports : UserControl
     {
         public Reports()
->>>>>>>> Dashboards:Views/Manager/Reports.xaml.cs
         {
             InitializeComponent();
         }
