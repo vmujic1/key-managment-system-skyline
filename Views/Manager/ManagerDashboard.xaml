@@ -23,8 +23,7 @@
             <local:Reports/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:AddUserViewModel}">
-            <local:AddEmployee/>
-
+            <local:AddUser/>
         </DataTemplate>
     </Window.Resources>
 
