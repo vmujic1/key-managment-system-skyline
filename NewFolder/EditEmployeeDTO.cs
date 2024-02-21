@@ -1,8 +1,9 @@
 ﻿using key_managment_system.Models;
+using System.ComponentModel;
 
 namespace key_managment_system.NewFolder
 {
-    public class EditEmployeeDTO
+    public class EditEmployeeDTO : INotifyPropertyChanged
     {
         public EditEmployeeDTO()
         {
@@ -22,5 +23,11 @@ namespace key_managment_system.NewFolder
         public string LastName { get; set; }
 
         public string Rfid { get; set; }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

@@ -5,6 +5,7 @@ using key_managment_system.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -49,29 +50,33 @@ namespace key_managment_system.Views.Manager
 
 
 
-        private void UpdateUser(object sender, RoutedEventArgs e)
+        private async void UpdateUser(object sender, RoutedEventArgs e)
         {
             int Id = (int)((Button)sender).CommandParameter;
-            MessageBox.Show(Id.ToString());
             EditWindow edit = new EditWindow(Id);
-            edit.Show();
-
-        }
-
-        public void RefreshData()
-        {
-            Users = viewModel.GetUsersFromDatabaseAsync().Result;
+            edit.ShowDialog();
+            await Task.Delay(500);
+            Users = await viewModel.GetUsersFromDatabaseAsync();
             DataGrid.ItemsSource = Users;
-        }
 
-        private void DeleteUser(object sender, RoutedEventArgs e)
+        }
+        
+        
+
+        private async void DeleteUser(object sender, RoutedEventArgs e)
         {
             if (DataGrid.SelectedItem != null)
             {
                 int selectedUserId = ((EditEmployeeDTO)DataGrid.SelectedItem).Id;
                 viewModel.Id = selectedUserId; // Set the Id property in the ViewModel
                 viewModel.DeleteUserCommand.Execute(null);
-                
+               await Task.Delay(500);
+                Users = await viewModel.GetUsersFromDatabaseAsync();
+                DataGrid.ItemsSource = Users;
+
+
+
+
             }
             else
             {
