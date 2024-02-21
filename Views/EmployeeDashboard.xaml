@@ -12,7 +12,7 @@
          Background="Transparent"
          AllowsTransparency="True">
     <Window.DataContext>
-        <viewModel:ManagerDashboardViewModel/>
+        <viewModel:EmployeeDashboardViewModel/>
     </Window.DataContext>
 
     <Window.Resources>
