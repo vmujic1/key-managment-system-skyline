@@ -75,6 +75,138 @@
         <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="440,441,0,0" VerticalAlignment="Top"/>
         <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="533,501,0,0" VerticalAlignment="Top"/>
         <Button Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="291,362,0,0" VerticalAlignment="Top"/>
+        <Image MouseLeftButtonDown="strDown" x:Name="Str" Source="../../Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="367,139,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="Qr3Down" x:Name="Qr3" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="367,68,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="StaDown" x:Name="Sta" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="367,270,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="WsDown" x:Name="Ws" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="170,98,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="ToDown" x:Name="To" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="444,98,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="Qr2Down" x:Name="Qr2" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="58,534,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="Of1Down" x:Name="Of1" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="327,516,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="Of2Down" x:Name="Of2" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="444,519,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="Qr1Down" x:Name="Qr1" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="537,534,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="Cr1Down" x:Name="Cr1" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="699,302,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="Cr2Down" x:Name="Cr2" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="699,491,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image MouseLeftButtonDown="OsDown" x:Name="Os3" Source="/Images/info-icon-blue.png" HorizontalAlignment="Left" Height="30" Margin="155,379,0,0" VerticalAlignment="Top" Width="30">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
 
     </Grid>
 </UserControl>
