@@ -83,7 +83,7 @@
               Padding="5 0 0 0">
             </TextBox>
 
-            <TextBlock  Text="LastName"
+            <TextBlock  Text="Last name"
                         Foreground="Black"
                         FontSize="12"
                         FontWeight="Medium"
