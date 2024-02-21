@@ -18,7 +18,7 @@ namespace key_managment_system.Views.Employee
     /// <summary>
     /// Interaction logic for RequestsEmployee.xaml
     /// </summary>
-    public partial class RequestsEmployee : Page
+    public partial class RequestsEmployee : UserControl
     {
         public RequestsEmployee()
         {

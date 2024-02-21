@@ -26,7 +26,7 @@ namespace key_managment_system.ViewModels
 
         private void ExecuteRequestsEmployeeCommand(object obj)
         {
-            CurrentChildView = new VisualisationViewModel();
+            CurrentChildView = new RequestsEmployeeViewModel();
 
         }
 

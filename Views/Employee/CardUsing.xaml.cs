@@ -18,7 +18,7 @@ namespace key_managment_system.Views.Employee
     /// <summary>
     /// Interaction logic for CardUsing.xaml
     /// </summary>
-    public partial class CardUsing : Page
+    public partial class CardUsing : UserControl
     {
         public CardUsing()
         {
