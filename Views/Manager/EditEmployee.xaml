@@ -39,10 +39,8 @@
                 <Setter Property="ColumnWidth" Value="*"/>
             </Style>
         </Grid.Resources>
-        <DockPanel>
-            <DataGrid x:Name="DataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True"
-                      ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}"
-                      RowBackground="Navy" Foreground="White" BorderBrush="White" BorderThickness="1">
+        <DataGrid x:Name="DataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True"
+                      ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" MinRowHeight="30">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="First name" Binding="{Binding FirstName}" />
                     <DataGridTextColumn Header="Last name" Binding="{Binding LastName}" />
@@ -51,10 +49,51 @@
                     <DataGridTemplateColumn Header="Action">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
                                             Width="auto">
-                                    <Button Content="Update" Click="UpdateUser" CommandParameter="{Binding Path=Id}" Width="120" HorizontalAlignment="Center" Background="#004f7c" FontWeight="Bold" Margin="0,0,2,0" Foreground="White"></Button>
-                                    <Button Content="Delete" Width="120" Click="DeleteUser" CommandParameter="{Binding DataContext.Id, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Background="red" FontWeight="Bold" Margin="0,0,2,0" Foreground="White"></Button>
+                                    <Button Content="Update" Click="UpdateUser" CommandParameter="{Binding Path=Id}" Width="120" HorizontalAlignment="Center" Background="GhostWhite"  Margin="0,0,10,0" Foreground="Black">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="BorderBrush" Value="Black"/>
+                                            <Setter Property="BorderThickness" Value="2"/>
+                                            <Setter Property="Padding" Value="15"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border Background="{TemplateBinding Background}"
+                                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                                            CornerRadius="10">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                    <Button Content="Delete" Width="120" Click="DeleteUser" CommandParameter="{Binding DataContext.Id, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Background="Red" Margin="0,0,2,0" Foreground="White">
+                           
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="BorderBrush" Value="Black"/>
+                                                <Setter Property="BorderThickness" Value="2"/>
+                                                <Setter Property="Padding" Value="15"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10">
+                                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -62,8 +101,7 @@
                 </DataGrid.Columns>
 
                 <!-- Header Styles -->
-               
+
             </DataGrid>
-        </DockPanel>
     </Grid>
 </UserControl>

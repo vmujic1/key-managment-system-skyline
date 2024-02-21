@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:key_managment_system.Views.Manager"
         mc:Ignorable="d"
-        Title="DetailedReportsResults" Height="450" Width="900">
+        Title="DetailedReportsResults" Height="450" Width="900" WindowStyle="ToolWindow" >
     <Grid Background="WhiteSmoke">
 
         <Grid.Resources>
