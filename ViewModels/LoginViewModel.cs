@@ -1,5 +1,6 @@
 ﻿using key_managment_system.DBContexts;
 using key_managment_system.Models;
+using key_managment_system.Views;
 using key_managment_system.Views.Manager;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -69,6 +70,9 @@ namespace key_managment_system.ViewModels
                 user.Username = Username;
                 user.Password = Password;
                 await context.SaveChangesAsync();
+                this.IsViewVisible = false;
+                LoginView man = new LoginView();
+                man.Visibility = Visibility.Visible;
             }
         }
 
