@@ -25,6 +25,9 @@
         <DataTemplate DataType="{x:Type viewModel:AddUserViewModel}">
             <local:AddUser/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:DetailedReportsViewModel}">
+            <local:DetailedReports/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:EditUserViewModel}">
             <local:EditEmployee/>
         </DataTemplate>
@@ -59,6 +62,14 @@
                         </StackPanel>
 
                     </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                           Command="{Binding ShowDetailedReportsCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Individual keycard usage report"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
+
                     <RadioButton Style="{StaticResource menuButton}"
                                  Command="{Binding ShowAddUserCommand}">
                         <StackPanel Orientation="Horizontal">
