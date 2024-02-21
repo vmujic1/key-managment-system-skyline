@@ -7,18 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid Background="GhostWhite">
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="540" Margin="35,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="734" RenderTransformOrigin="1.166,0.461"/>
-        <Rectangle Fill="LightBlue" HorizontalAlignment="Left" Height="151" Margin="35,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" RadiusX="0" RadiusY="0"/>
-        <Rectangle Fill="Blue" HorizontalAlignment="Left" Height="75" Margin="335,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
-        <Rectangle Fill="DeepSkyBlue" HorizontalAlignment="Left" Height="76" Margin="335,116,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
-        <Rectangle Fill="CadetBlue" HorizontalAlignment="Left" Height="113" Margin="405,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
-        <Rectangle Fill="MidnightBlue" HorizontalAlignment="Left" Height="185" Margin="279,192,0,0" Stroke="Black" VerticalAlignment="Top" Width="236"/>
-        <Rectangle Fill="LightSteelBlue" HorizontalAlignment="Left" Height="130" Margin="279,451,0,0" Stroke="Black" VerticalAlignment="Top" Width="126"/>
-        <Rectangle Fill="PowderBlue" HorizontalAlignment="Left" Height="130" Margin="405,451,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
-        <Rectangle Fill="LightSlateGray" HorizontalAlignment="Left" Height="65" Margin="35,516,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
-        <Rectangle Fill="SlateBlue" HorizontalAlignment="Left" Height="65" Margin="515,516,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
-        <Rectangle Fill="LightSkyBlue" HorizontalAlignment="Left" Height="172" Margin="659,409,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
-        <Rectangle Fill="CornflowerBlue" HorizontalAlignment="Left" Height="185" Margin="659,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle x:Name="o11" Fill="LightGray" HorizontalAlignment="Left" Height="540" Margin="35,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="734" RenderTransformOrigin="1.166,0.461"/>
+        <Rectangle x:Name="o12" Fill="LightGray" HorizontalAlignment="Left" Height="151" Margin="35,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" RadiusX="0" RadiusY="0"/>
+        <Rectangle x:Name="o5" Fill="LightGray" HorizontalAlignment="Left" Height="75" Margin="335,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
+        <Rectangle x:Name="o9" Fill="LightGray" HorizontalAlignment="Left" Height="76" Margin="335,116,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
+        <Rectangle x:Name="o10" Fill="LightGray" HorizontalAlignment="Left" Height="113" Margin="405,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle x:Name="o6" Fill="LightGray" HorizontalAlignment="Left" Height="185" Margin="279,192,0,0" Stroke="Black" VerticalAlignment="Top" Width="236"/>
+        <Rectangle x:Name="o7" Fill="LightGray" HorizontalAlignment="Left" Height="130" Margin="279,451,0,0" Stroke="Black" VerticalAlignment="Top" Width="126"/>
+        <Rectangle x:Name="o8" Fill="LightGray" HorizontalAlignment="Left" Height="130" Margin="405,451,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle x:Name="o4" Fill="LightGray" HorizontalAlignment="Left" Height="65" Margin="35,516,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+        <Rectangle x:Name="o3" Fill="LightGray" HorizontalAlignment="Left" Height="65" Margin="515,516,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+        <Rectangle x:Name="o2" Fill="LightGray" HorizontalAlignment="Left" Height="172" Margin="659,409,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle x:Name="o1" Fill="LightGray" HorizontalAlignment="Left" Height="185" Margin="659,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
         <Button x:Name="WsBtn" Click="WsBtnDown" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="199,177,0,0" VerticalAlignment="Top"/>
         <Button Click="StrBtnDown" x:Name="StrBtn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="316,149,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
@@ -196,7 +196,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image MouseLeftButtonDown="OsDown" x:Name="Os3" Source="/Images/info-icon-blue.png" HorizontalAlignment="Left" Height="30" Margin="155,379,0,0" VerticalAlignment="Top" Width="30">
+        <Image MouseLeftButtonDown="OsDown" x:Name="Os3" Source="/Images/info-icon.png" HorizontalAlignment="Left" Height="30" Margin="155,379,0,0" VerticalAlignment="Top" Width="30">
             <Image.Style>
                 <Style TargetType="Image">
                     <Style.Triggers>

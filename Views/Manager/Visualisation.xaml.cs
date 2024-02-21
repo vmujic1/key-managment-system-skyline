@@ -1,4 +1,7 @@
-﻿using key_managment_system.Models;
+﻿using key_managment_system.DBContexts;
+using key_managment_system.Models;
+using key_managment_system.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +25,87 @@ namespace key_managment_system.Views.Manager
     public partial class Visualisation : UserControl
     {
 
-        public User currentUser { get; set; }
         
         
 
+        public async void UpdateUserDatabase()
+        {
+            Context context = new Context();
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Id == UserManager.Instance.UserId);
+            user.CurrentRoomId = UserManager.Instance.CurrentRoomId;
+            await context.SaveChangesAsync();
+        }
+
+        public void UpdateRoomColor()
+        {
+            o1.Fill = Brushes.LightGray;
+            o2.Fill = Brushes.LightGray;
+            o3.Fill = Brushes.LightGray;
+            o4.Fill = Brushes.LightGray;
+            o5.Fill = Brushes.LightGray;
+            o6.Fill = Brushes.LightGray;
+            o7.Fill = Brushes.LightGray;
+            o8.Fill = Brushes.LightGray;
+            o9.Fill = Brushes.LightGray;
+            o10.Fill = Brushes.LightGray;
+            o11.Fill = Brushes.LightGray;
+            o12.Fill = Brushes.LightGray;
+
+            if (UserManager.Instance.CurrentRoomId == 1)
+            {
+                o1.Fill = Brushes.Navy;
+            }
+            else if(UserManager.Instance.CurrentRoomId == 2)
+            {
+                o2.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 3)
+            {
+                o3.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 4)
+            {
+                o4.Fill = Brushes.Navy;
+
+            }
+            else if (UserManager.Instance.CurrentRoomId == 5)
+            {
+                o5.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 6)
+            {
+                o6.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 7)
+            {
+                o7.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 8)
+            {
+                o8.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 9)
+            {
+                o9.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 10)
+            {
+                o10.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 11)
+            {
+                o11.Fill = Brushes.Navy;
+            }
+            else if (UserManager.Instance.CurrentRoomId == 12)
+            {
+                o12.Fill = Brushes.Navy;
+            }
+        }
         public async void UpdateDoors()
         {
+            UpdateUserDatabase();
+            UpdateRoomColor();
+
             await Task.Delay(500);
             
             Qr1Btn.Visibility = Visibility.Hidden;
@@ -42,57 +120,57 @@ namespace key_managment_system.Views.Manager
             ToBtn.Visibility = Visibility.Hidden;
             WsBtn.Visibility = Visibility.Hidden;
             
-            if (currentUser.CurrentRoomId == 1)
+            if (UserManager.Instance.CurrentRoomId == 1)
             {
                 Cr1Btn.Visibility= Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 2)
+            else if(UserManager.Instance.CurrentRoomId == 2)
             {
                 Cr2Btn.Visibility= Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 3)
+            else if(UserManager.Instance.CurrentRoomId == 3)
             {
                 Qr1Btn.Visibility = Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 4)
+            else if(UserManager.Instance.CurrentRoomId == 4)
             {
                 Qr2Btn.Visibility = Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 5)
+            else if(UserManager.Instance.CurrentRoomId == 5)
             {
                 Qr3Btn.Visibility = Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 6)
+            else if(UserManager.Instance.CurrentRoomId == 6)
             {
                 StaBtn.Visibility = Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 7)
+            else if(UserManager.Instance.CurrentRoomId == 7)
             {
                 Of1Btn.Visibility = Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 8)
+            else if(UserManager.Instance.CurrentRoomId == 8)
             {
                 Of2Btn.Visibility = Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 9)
+            else if(UserManager.Instance.CurrentRoomId == 9)
             {
                 StrBtn.Visibility = Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 10)
+            else if(UserManager.Instance.CurrentRoomId == 10)
             {
                 ToBtn.Visibility = Visibility.Visible;
                 return;
             }
-            else if(currentUser.CurrentRoomId == 11)
+            else if(UserManager.Instance.CurrentRoomId == 11)
             {
                 WsBtn.Visibility = Visibility.Visible;
                 ToBtn.Visibility = Visibility.Visible;
@@ -105,7 +183,7 @@ namespace key_managment_system.Views.Manager
                 Cr2Btn.Visibility = Visibility.Visible;
                 return;
             }
-            else if (currentUser.CurrentRoomId == 12)
+            else if (UserManager.Instance.CurrentRoomId == 12)
             {
                 Qr3Btn.Visibility= Visibility.Visible;
                 StrBtn.Visibility= Visibility.Visible;
@@ -116,8 +194,8 @@ namespace key_managment_system.Views.Manager
 
         public Visualisation()
         {
-            currentUser = new User();
-            currentUser.CurrentRoomId = 11;
+            
+            
             
             InitializeComponent();
             UpdateDoors();
@@ -197,58 +275,130 @@ namespace key_managment_system.Views.Manager
 
         public void StrBtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 9;
+            if(UserManager.Instance.CurrentRoomId == 9)
+            {
+                UserManager.Instance.CurrentRoomId = 12;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 9;
+            }
+            
             UpdateDoors();
             
         }
 
         public void Qr3BtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 5;
+
+            if (UserManager.Instance.CurrentRoomId == 5)
+            {
+                UserManager.Instance.CurrentRoomId = 12;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 5;
+            }
+            
             UpdateDoors();
             
         }
 
         public void Qr2BtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 4;
+            if (UserManager.Instance.CurrentRoomId == 4)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 4;
+            }
+            
             UpdateDoors();
         }
 
         public void Qr1BtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 3;
+            if (UserManager.Instance.CurrentRoomId == 3)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 3;
+            }
+           
             UpdateDoors();
         }
 
         public void Cr2BtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 2;
+            if (UserManager.Instance.CurrentRoomId == 2)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 2;
+            }
+            
             UpdateDoors();
         }
         public void Cr1BtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 1;
+            if (UserManager.Instance.CurrentRoomId == 1)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 1;
+            }
+            
             UpdateDoors();
         }
 
         public void StaBtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 6;
+            if (UserManager.Instance.CurrentRoomId == 6)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 6;
+            }
+            
             UpdateDoors();
         }
 
         private void Of1BtnDown(object sender, RoutedEventArgs e)
         {
+            if (UserManager.Instance.CurrentRoomId == 7)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 7;
+            }
             
-            currentUser.CurrentRoomId = 7;
             UpdateDoors();
 
 
         }
         private void Of2BtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 8;
+            if (UserManager.Instance.CurrentRoomId == 8)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 8;
+            }
+            
             UpdateDoors();
 
             
@@ -256,14 +406,30 @@ namespace key_managment_system.Views.Manager
 
         public void ToBtnDown(object sender, RoutedEventArgs e)
         {
-            currentUser.CurrentRoomId = 10;
+            if (UserManager.Instance.CurrentRoomId == 10)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 10;
+            }
+            
             UpdateDoors();
         }
 
         public void WsBtnDown(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Johny");
-            currentUser.CurrentRoomId = 12;
+            if (UserManager.Instance.CurrentRoomId == 12)
+            {
+                UserManager.Instance.CurrentRoomId = 11;
+            }
+            else
+            {
+                UserManager.Instance.CurrentRoomId = 12;
+            }
+            
+            
             UpdateDoors();
         }
 
