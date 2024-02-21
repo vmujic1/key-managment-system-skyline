@@ -104,6 +104,8 @@ namespace key_managment_system.ViewModels
             // For simplicity, a dummy data is provided here
             // Replace this with your actual data retrieval logic
             Context context = new Context();
+
+            // baca greske cesto
             var test = await (from k in context.Keycards
                               join u in context.Users
                                  on k.Id equals u.Keycard.Id

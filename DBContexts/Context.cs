@@ -32,8 +32,10 @@ namespace key_managment_system.DBContexts
         
 
             string connectionString = ConfigurationManager.ConnectionStrings["link"].ConnectionString;
-            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), mySqlOptions =>
+            {
+                mySqlOptions.EnableRetryOnFailure();
+            });
         }
 
 
