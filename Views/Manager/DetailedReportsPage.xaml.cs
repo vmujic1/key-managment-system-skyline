@@ -1,6 +1,7 @@
 ﻿using key_managment_system.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,24 +12,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace key_managment_system.Views.Manager
 {
     /// <summary>
-    /// Interaction logic for EditPage.xaml
+    /// Interaction logic for DetailedReportsPage.xaml
     /// </summary>
-    public partial class EditWindow : Window
+    public partial class DetailedReportsPage : Window
     {
         private int id;
-        private EditPageViewModel viewModel;
+        private DetailedReportsPageViewModel viewModel;
 
-        public EditWindow(int id)
+        public DetailedReportsPage()
+        {
+            InitializeComponent();
+        }
+
+        public DetailedReportsPage(int id)
         {
             this.id = id;
-            viewModel = new EditPageViewModel(id);
             InitializeComponent();
+            
+            viewModel = new DetailedReportsPageViewModel(id);
             DataContext = viewModel;
             Width = 300;
             Height = 600;
@@ -43,7 +49,11 @@ namespace key_managment_system.Views.Manager
         private void CloseModal(object sender, RoutedEventArgs e)
         {
             this.Close();
-            EditEmployee eK = new EditEmployee();  
+            EditEmployee eK = new EditEmployee();
+
+
+
+
         }
     }
 }

@@ -1,0 +1,175 @@
+﻿<Window x:Class="key_managment_system.Views.Manager.DetailedReportsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:key_managment_system.Views.Manager" 
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:viewmodels="clr-namespace:key_managment_system.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:DetailedReportsPageViewModel}"
+        mc:Ignorable="d"
+        Title="DetailedReportsPage" Height="450" Width="800">
+    <Grid Background="WhiteSmoke">
+
+        <StackPanel Width="250"
+      Orientation="Vertical"
+      Margin="0,0,0,0"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center">
+
+            <Image Source="/Images/report-icon.png"
+     Width="220" Height="100"/>
+
+            <TextBlock Text=""
+         Foreground="Black"
+         FontSize="25"
+         FontWeight="Medium"
+         FontFamily="Montserrat"
+         HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Generate keycard usage report for user"
+         
+         Foreground="Black"
+         FontSize="15"
+         FontWeight="Bold"
+         FontFamily="Montserrat"
+         TextWrapping="Wrap"
+         TextAlignment="Center"
+         Margin="0,0,0,0"/>
+
+            <TextBlock Text="{Binding ErrorMessage}"
+          Foreground="#D7596D"
+          FontSize="12"
+          FontWeight="Medium"
+          FontFamily="Montserrat"                             
+          Margin="0,0,0,0"
+          TextWrapping="Wrap"
+          />
+
+
+            <TextBlock Text="First name"
+         Foreground="Black"
+         FontSize="12"
+         FontWeight="Medium"
+         FontFamily="Montserrat"                             
+         Margin="0,15,0,0"
+           />
+
+            <TextBox x:Name="txtFirstName"
+                       Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
+                       FontSize="13"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"                            
+                       Foreground="Black"
+                       CaretBrush="LightGray"
+                       BorderBrush="DarkGray"
+                       BorderThickness="0,0,0,2"
+                       Height="28"
+                       VerticalContentAlignment="Center"
+                       Margin="0 5 0 0"
+                       Padding="5 0 0 0"
+                       IsReadOnly="True">
+            </TextBox>
+
+            <TextBlock  Text="Last name"
+                 Foreground="Black"
+                 FontSize="12"
+                 FontWeight="Medium"
+                 FontFamily="Montserrat"                             
+                 Margin="0,30,0,0"/>
+
+            <TextBox x:Name="txtLastName"
+                   Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
+                   FontSize="13"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"                            
+                   Foreground="Black"
+                   CaretBrush="LightGray"
+                   BorderBrush="DarkGray"
+                   BorderThickness="0,0,0,2"
+                   Height="28"
+                   VerticalContentAlignment="Center"
+                   Margin="0 5 0 0"
+                   Padding="5 0 0 0"
+                   IsReadOnly="True">
+            </TextBox>
+
+            <TextBlock  Text="Start date"
+                 Foreground="Black"
+                 FontSize="12"
+                 FontWeight="Medium"
+                 FontFamily="Montserrat"                             
+                 Margin="0,30,0,0"/>
+
+            <DatePicker x:Name="startdate"
+                   SelectedDate="{Binding Path=StartDate}"
+                   DisplayDateStart="2024-01-01"
+                   FontSize="13"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"                            
+                   Foreground="Black"
+                   BorderBrush="DarkGray"
+                   BorderThickness="0,0,0,2"
+                   Height="28"
+                   VerticalContentAlignment="Center"
+                   Margin="0 5 0 0"
+                   Padding="5 0 0 0">
+            </DatePicker>
+
+            <TextBlock  Text="End date"
+                        Foreground="Black"
+                        FontSize="12"
+                        FontWeight="Medium"
+                        FontFamily="Montserrat"                             
+                        Margin="0,30,0,0"/>
+
+            <DatePicker x:Name="enddate"
+                      SelectedDate="{x:Static sys:DateTime.Today}"
+                      Text="{Binding EndDate, UpdateSourceTrigger=PropertyChanged}"
+                      FontSize="13"
+                      FontWeight="Medium"
+                      FontFamily="Montserrat"                            
+                      Foreground="Black"
+                      BorderBrush="DarkGray"
+                      BorderThickness="0,0,0,2"
+                      Height="28"
+                      VerticalContentAlignment="Center"
+                      Margin="0 5 0 0"
+                      Padding="5 0 0 0">
+            </DatePicker>
+            <Button 
+                 Content="Report"
+
+                 Click="CloseModal"
+                 Command="{Binding GenerateReport}"
+                 Foreground="White"
+                 FontSize="12"
+                 Cursor="Hand"                           
+                 Margin="0 30 0 0" >
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#004f7c"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="40"
+                         CornerRadius="20"
+                         Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
