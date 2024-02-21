@@ -26,7 +26,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                                     <Button Content="Update" Click="UpdateUser" CommandParameter="{Binding Path=Id}" Width="120" HorizontalAlignment="Center"></Button>
-                                    <Button Content="Delete" Click="DeleteUser" CommandParameter="{Binding Path=Id}" Width="120"></Button>
+                                    <Button Content="Delete" Width="120" Click="DeleteUser" CommandParameter="{Binding DataContext.Id, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"> </Button>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

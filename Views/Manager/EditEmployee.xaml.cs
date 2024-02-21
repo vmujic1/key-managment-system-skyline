@@ -66,7 +66,18 @@ namespace key_managment_system.Views.Manager
 
         private void DeleteUser(object sender, RoutedEventArgs e)
         {
-
+            if (DataGrid.SelectedItem != null)
+            {
+                int selectedUserId = ((EditEmployeeDTO)DataGrid.SelectedItem).Id;
+                viewModel.Id = selectedUserId; // Set the Id property in the ViewModel
+                viewModel.DeleteUserCommand.Execute(null);
+                
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to delete.");
+            }
         }
+
     }
 }
