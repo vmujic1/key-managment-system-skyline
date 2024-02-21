@@ -10,18 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace key_managment_system.Views
+namespace key_managment_system.Views.Manager
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for AddUser.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class AddUser : Page
     {
-        public MainView()
+        public AddUser()
         {
-            InitializeComponent();
         }
     }
 }

@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace key_managment_system.Models
+namespace key_managment_system.ViewModels
 {
-    public enum AccessLevelEnum
+    public class CardUsingViewModel : ViewModelBase
     {
-        Low = 0,
-        Medium = 1,
-        High = 2 
+
     }
 }

@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace key_managment_system
+namespace key_managment_system.Views.Manager
 {
     /// <summary>
-    /// Interaction logic for ManagerDashboardWindow.xaml
+    /// Interaction logic for Visualisation.xaml
     /// </summary>
-    public partial class ManagerDashboardWindow : Window
+    public partial class Visualisation : UserControl
     {
-        public ManagerDashboardWindow()
+        public Visualisation()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void actionTest(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Collapsed;
         }
     }
 }
