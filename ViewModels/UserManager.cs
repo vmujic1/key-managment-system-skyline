@@ -23,6 +23,8 @@ namespace key_managment_system.ViewModels
         public int UserId { get; set; }
         public int KeycardId { get; set; }
         public int Role { get; set; }
+        
+        public int CurrentRoomId { get; set; }
 
         private UserManager() { }
     }
