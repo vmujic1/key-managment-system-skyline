@@ -41,12 +41,19 @@ namespace key_managment_system.Views.Manager
         }
 
 
-        public void UpdateOffice(object sender, RoutedEventArgs e)
+        public async void UpdateOffice(object sender, RoutedEventArgs e)
         {
             int Id = (int)((Button)sender).CommandParameter;
-            MessageBox.Show(Id.ToString());
             EditOfficeAccess edit = new EditOfficeAccess(Id);
-            edit.Show();
+            bool? dialogResult = edit.ShowDialog();
+
+            await Task.Delay(500);
+
+
+            Offices = await viewModel.GetOfficesFromDatabase();
+            DataGrid.ItemsSource = Offices;
+
+
         }
     }
 }

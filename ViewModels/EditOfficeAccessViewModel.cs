@@ -25,8 +25,8 @@ namespace key_managment_system.ViewModels
             Context context = new Context();
             Room room = await context.Rooms.FindAsync(officeId);
             room.AccessLevel = access;
-            MessageBox.Show(room.AccessLevel.ToString());
             await context.SaveChangesAsync();
+            await Task.Delay(1000);
         }
 
         
