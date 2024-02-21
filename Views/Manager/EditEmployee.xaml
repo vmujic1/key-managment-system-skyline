@@ -6,33 +6,72 @@
              xmlns:local="clr-namespace:key_managment_system.Views.Manager"
              xmlns:viewModel="clr-namespace:key_managment_system.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-           >
+             d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.DataContext>
         <viewModel:EditUserViewModel/>
     </UserControl.DataContext>
+    
 
-    <Grid Background="WhiteSmoke">
+    <Grid>
+        <Grid.Resources>
+            <!-- Style for DataGridColumnHeader -->
+            <Style TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="Navy"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            </Style>
+
+            <!-- Style for DataGrid -->
+            <Style TargetType="DataGrid">
+                <Setter Property="VerticalGridLinesBrush" Value="White"/>
+                <Setter Property="HorizontalGridLinesBrush" Value="White"/>
+                <Setter Property="AlternatingRowBackground" Value="Navy"/>
+                <Setter Property="RowBackground" Value="#1C30D9"/>
+                <Setter Property="RowHeight" Value="25"/>
+                <Setter Property="RowHeaderWidth" Value="0"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                <Setter Property="ColumnWidth" Value="*"/>
+            </Style>
+        </Grid.Resources>
         <DockPanel>
             <DataGrid x:Name="DataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True"
-                      ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}">
+                      ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}"
+                      RowBackground="Navy" Foreground="White" BorderBrush="White" BorderThickness="1">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="First name" Binding="{Binding FirstName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="RFID" Binding="{Binding Rfid}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="First name" Binding="{Binding FirstName}" />
+                    <DataGridTextColumn Header="Last name" Binding="{Binding LastName}" />
+                    <DataGridTextColumn Header="RFID" Binding="{Binding Rfid}" />
 
                     <DataGridTemplateColumn Header="Action">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                                    <Button Content="Update" Click="UpdateUser" CommandParameter="{Binding Path=Id}" Width="120" HorizontalAlignment="Center"></Button>
-                                    <Button Content="Delete" Width="120" Click="DeleteUser" CommandParameter="{Binding DataContext.Id, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"></Button>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"
+                                            Width="auto">
+                                    <Button Content="Update" Click="UpdateUser" CommandParameter="{Binding Path=Id}" Width="120" HorizontalAlignment="Center" Background="#004f7c" FontWeight="Bold" Margin="0,0,2,0" Foreground="White"></Button>
+                                    <Button Content="Delete" Width="120" Click="DeleteUser" CommandParameter="{Binding DataContext.Id, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Background="red" FontWeight="Bold" Margin="0,0,2,0" Foreground="White"></Button>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
+
+                <!-- Header Styles -->
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="Navy" />
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="Height" Value="30"/>
+                        <Setter Property="FontSize" Value="12"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
             </DataGrid>
         </DockPanel>
     </Grid>
