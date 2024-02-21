@@ -34,6 +34,7 @@ namespace key_managment_system.Views.Manager
 
         public EditEmployee()
         {
+            //Veca
             viewModel = new EditUserViewModel();
             InitializeComponent();
             Loaded += Load;
