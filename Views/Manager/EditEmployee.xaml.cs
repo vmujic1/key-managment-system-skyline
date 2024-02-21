@@ -27,6 +27,8 @@ namespace key_managment_system.Views.Manager
     public partial class EditEmployee : Page
     {
         private EditUserViewModel viewModel;
+        public event EventHandler DataChanged;
+
 
         public List<EditEmployeeDTO> Users { get; set; }
 
@@ -35,6 +37,7 @@ namespace key_managment_system.Views.Manager
             viewModel = new EditUserViewModel();
             InitializeComponent();
             Loaded += Load;
+
         }
 
         private async void Load(object sender, RoutedEventArgs args)
@@ -51,6 +54,17 @@ namespace key_managment_system.Views.Manager
             MessageBox.Show(Id.ToString());
             EditWindow edit = new EditWindow(Id);
             edit.Show();
+
+        }
+
+        public void RefreshData()
+        {
+            Users = viewModel.GetUsersFromDatabaseAsync().Result;
+            DataGrid.ItemsSource = Users;
+        }
+
+        private void DeleteUser(object sender, RoutedEventArgs e)
+        {
 
         }
     }
