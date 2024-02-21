@@ -24,7 +24,7 @@ namespace key_managment_system.Views.Manager
     /// <summary>
     /// Interaction logic for EditEmployee.xaml
     /// </summary>
-    public partial class EditEmployee : Page
+    public partial class EditEmployee : UserControl
     {
         private EditUserViewModel viewModel;
         public event EventHandler DataChanged;
@@ -34,6 +34,7 @@ namespace key_managment_system.Views.Manager
 
         public EditEmployee()
         {
+            //Veca
             viewModel = new EditUserViewModel();
             InitializeComponent();
             Loaded += Load;
@@ -46,7 +47,7 @@ namespace key_managment_system.Views.Manager
             DataGrid.ItemsSource = Users;
         }
 
-  
+
 
         private void UpdateUser(object sender, RoutedEventArgs e)
         {
@@ -65,7 +66,18 @@ namespace key_managment_system.Views.Manager
 
         private void DeleteUser(object sender, RoutedEventArgs e)
         {
-
+            if (DataGrid.SelectedItem != null)
+            {
+                int selectedUserId = ((EditEmployeeDTO)DataGrid.SelectedItem).Id;
+                viewModel.Id = selectedUserId; // Set the Id property in the ViewModel
+                viewModel.DeleteUserCommand.Execute(null);
+                
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to delete.");
+            }
         }
+
     }
 }

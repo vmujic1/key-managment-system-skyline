@@ -32,6 +32,7 @@ namespace key_managment_system.Views.Manager
             DataContext = viewModel;
             Width = 300;
             Height = 600;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void txtKeycardId_TextChanged(object sender, TextChangedEventArgs e)

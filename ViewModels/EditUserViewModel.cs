@@ -10,12 +10,71 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace key_managment_system.ViewModels
 {
     public class EditUserViewModel : ViewModelBase
     {
         private ObservableCollection<EditEmployeeDTO> _users;
+
+        public ICommand DeleteUserCommand { get; }
+        private int _userId;
+
+        public int Id { get; set; }
+
+
+        public EditUserViewModel()
+        {
+
+            DeleteUserCommand = new ViewModelCommand(ExecuteDeleteUserCommand, CanExecuteDeleteUserCommand);
+
+
+        }
+
+        public EditUserViewModel(int userId)
+        {
+            _userId = userId;
+            DeleteUserCommand = new ViewModelCommand(ExecuteDeleteUserCommand, CanExecuteDeleteUserCommand);
+
+        }
+
+        private bool CanExecuteDeleteUserCommand(object obj)
+        {
+            return true;
+        }
+
+        private async void ExecuteDeleteUserCommand(object obj)
+        {
+            var context = new Context();
+            
+
+            var userData = await context.Users.FirstOrDefaultAsync(u => u.Id == Id);
+
+            if (userData != null)
+            {
+                var keycard = await context.Keycards.FirstOrDefaultAsync(k => k.Id.Equals(userData.KeycardId));
+
+                if (keycard != null)
+                {
+                    context.Keycards.Remove(keycard);
+
+                    context.Users.Remove(userData);
+                    await context.SaveChangesAsync();
+
+                    MessageBox.Show("User deleted successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Keycard not found for the user.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("User not found.");
+            }
+        }
 
         public ObservableCollection<EditEmployeeDTO> Users
         {
@@ -29,6 +88,8 @@ namespace key_managment_system.ViewModels
                 }
             }
         }
+
+        public int SelectedUserId => _userId;
 
         public async Task<List<EditEmployeeDTO>> GetUsersFromDatabaseAsync()
         {

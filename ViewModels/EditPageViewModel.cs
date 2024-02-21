@@ -67,6 +67,7 @@ namespace key_managment_system.ViewModels
         private async void ExecuteUpdateUserCommand(object obj)
         {
             var context = new Context();
+            MessageBox.Show(_userId.ToString());
             var userData = await context.Users.FindAsync(_userId);
             var keycard = await context.Keycards.FirstOrDefaultAsync(k => k.Id.Equals(userData.KeycardId));
 
