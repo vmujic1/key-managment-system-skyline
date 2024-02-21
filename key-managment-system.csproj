@@ -11,6 +11,8 @@
 
 	  <ItemGroup>
     <None Remove="Images\add-user-logo.png" />
+    <None Remove="Images\info-icon-blue.png" />
+    <None Remove="Images\info-icon.png" />
     <None Remove="Images\logo1.png" />
     <None Remove="Images\logo2.jpg" />
     <None Remove="Images\Logo3.jpg" />
@@ -18,6 +20,10 @@
     <None Remove="Images\report-icon.png" />
     <None Remove="Images\office-icon.png" />
   </ItemGroup>
+
+	  <ItemGroup>
+	    <Resource Include="Images\info-icon-blue.png" />
+	  </ItemGroup>
 
 	<ItemGroup>
 
@@ -42,6 +48,7 @@
 
   <ItemGroup>
     <Resource Include="Images\add-user-logo.png" />
+    <Resource Include="Images\info-icon.png" />
     <Resource Include="Images\logo1.png" />
     <Resource Include="Images\logo2.jpg" />
     <Resource Include="Images\Logo3.png" />
