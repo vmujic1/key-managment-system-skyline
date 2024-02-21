@@ -11,6 +11,8 @@ namespace key_managment_system.Models
         public int Id { get; set; }
         public string SerialNumber { get; set; }
         public DateTime TimeStamp { get; set; }
+
+        public int RoomId { get; set; }
         public Room Room { get; set; }
 
         public Record()
