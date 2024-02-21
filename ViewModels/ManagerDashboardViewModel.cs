@@ -1,8 +1,11 @@
-﻿using System;
+﻿using key_managment_system.Views;
+using key_managment_system.Views.Manager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace key_managment_system.ViewModels
@@ -17,6 +20,7 @@ namespace key_managment_system.ViewModels
             ShowVisualisationCommand = new ViewModelCommand(ExecuteVisualisationCommand);
             ShowReportsCommand = new ViewModelCommand(ExecuteReportsCommand);
             ShowAddUserCommand = new ViewModelCommand(ExecuteShowAddUserCommand);
+            LogoutUserCommand = new ViewModelCommand(ExecuteLogoutUserCommand);
 
             ExecuteVisualisationCommand(null);
         }
@@ -37,6 +41,14 @@ namespace key_managment_system.ViewModels
            
         }
 
+        private void ExecuteLogoutUserCommand(object obj)
+        {
+            var newWindow = new LoginView();
+            newWindow.Show();
+            
+        }
+
+
         public ViewModelBase CurrentChildView { 
             get => _currentChildView;
             set { 
@@ -48,5 +60,6 @@ namespace key_managment_system.ViewModels
         public ICommand ShowVisualisationCommand { get; }
         public ICommand ShowReportsCommand { get; }
         public ICommand ShowAddUserCommand { get; }
+        public ICommand LogoutUserCommand { get; }
     }
 }
