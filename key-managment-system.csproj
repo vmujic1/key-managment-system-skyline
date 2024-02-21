@@ -16,6 +16,7 @@
     <None Remove="Images\Logo3.jpg" />
     <None Remove="Images\Logo3.png" />
     <None Remove="Images\report-icon.png" />
+    <None Remove="Images\office-icon.png" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -45,6 +46,7 @@
     <Resource Include="Images\logo2.jpg" />
     <Resource Include="Images\Logo3.png" />
     <Resource Include="Images\report-icon.png" />
+    <Resource Include="Images\office-icon.png" />
   </ItemGroup>
 
 </Project>

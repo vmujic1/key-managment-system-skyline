@@ -28,6 +28,9 @@
         <DataTemplate DataType="{x:Type viewModel:EditUserViewModel}">
             <local:EditEmployee/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:OfficeAccessViewModel}">
+            <local:OfficeAccess/>
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="10" BorderThickness="1"  BorderBrush="WhiteSmoke">
@@ -48,7 +51,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Command="{Binding ShowVisualisationCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource menuButtonText}" Text="Visualisation"></TextBlock>
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Visualization"></TextBlock>
                         </StackPanel>
 
                     </RadioButton>
@@ -80,7 +83,8 @@
                         </StackPanel>
 
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowOfficeAccessCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource menuButtonText}" Text="Office Access"></TextBlock>
                         </StackPanel>

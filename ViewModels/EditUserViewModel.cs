@@ -1,43 +1,41 @@
 ﻿using key_managment_system.DBContexts;
 using key_managment_system.Models;
-using key_managment_system.NewFolder;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Windows.Input;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using key_managment_system.NewFolder;
+using System.Windows;
 
 namespace key_managment_system.ViewModels
 {
     public class EditUserViewModel : ViewModelBase
     {
-        private ObservableCollection<EditEmployeeDTO> _users;
-
         public ICommand DeleteUserCommand { get; }
         private int _userId;
 
         public int Id { get; set; }
 
+        private ObservableCollection<EditEmployeeDTO> _users;
 
         public EditUserViewModel()
         {
-
+            _users = new ObservableCollection<EditEmployeeDTO>();
             DeleteUserCommand = new ViewModelCommand(ExecuteDeleteUserCommand, CanExecuteDeleteUserCommand);
 
-
+            LoadUsers();
         }
 
-        public EditUserViewModel(int userId)
+        private async void LoadUsers()
         {
-            _userId = userId;
-            DeleteUserCommand = new ViewModelCommand(ExecuteDeleteUserCommand, CanExecuteDeleteUserCommand);
-
+            var users = await GetUsersFromDatabaseAsync();
+            foreach (var user in users)
+            {
+                _users.Add(user);
+            }
         }
 
         private bool CanExecuteDeleteUserCommand(object obj)
@@ -48,7 +46,6 @@ namespace key_managment_system.ViewModels
         private async void ExecuteDeleteUserCommand(object obj)
         {
             var context = new Context();
-            
 
             var userData = await context.Users.FirstOrDefaultAsync(u => u.Id == Id);
 
@@ -59,9 +56,19 @@ namespace key_managment_system.ViewModels
                 if (keycard != null)
                 {
                     context.Keycards.Remove(keycard);
-
                     context.Users.Remove(userData);
                     await context.SaveChangesAsync();
+
+                    // Remove the user from the ObservableCollection
+                    var userToRemove = _users.FirstOrDefault(u => u.Id == Id);
+                    if (userToRemove != null)
+                    {
+                        _users.Remove(userToRemove);
+                    }
+
+                    OnPropertyChanged(nameof(Users)); // Notify that the Users property has changed
+                    Users = new ObservableCollection<EditEmployeeDTO>(await GetUsersFromDatabaseAsync());
+
 
                     MessageBox.Show("User deleted successfully.");
                 }
@@ -98,10 +105,10 @@ namespace key_managment_system.ViewModels
             // Replace this with your actual data retrieval logic
             Context context = new Context();
             var test = await (from k in context.Keycards
-                       join u in context.Users
-                          on k.Id equals u.Keycard.Id
-                       select new { u.Id,u.FirstName, u.LastName, Rfid = k.SerialNumber }).ToListAsync();
-            var users = test.Select(x => new EditEmployeeDTO { Id = x.Id,FirstName = x.FirstName, LastName = x.LastName, Rfid = x.Rfid }).ToList();
+                              join u in context.Users
+                                 on k.Id equals u.Keycard.Id
+                              select new { u.Id, u.FirstName, u.LastName, Rfid = k.SerialNumber }).ToListAsync();
+            var users = test.Select(x => new EditEmployeeDTO { Id = x.Id, FirstName = x.FirstName, LastName = x.LastName, Rfid = x.Rfid }).ToList();
 
             return users;
         }

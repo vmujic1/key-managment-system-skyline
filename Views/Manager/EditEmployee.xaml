@@ -15,7 +15,8 @@
 
     <Grid Background="WhiteSmoke">
         <DockPanel>
-            <DataGrid x:Name="DataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True">
+            <DataGrid x:Name="DataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" IsReadOnly="True"
+                      ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="First name" Binding="{Binding FirstName}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"></DataGridTextColumn>
@@ -26,7 +27,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                                     <Button Content="Update" Click="UpdateUser" CommandParameter="{Binding Path=Id}" Width="120" HorizontalAlignment="Center"></Button>
-                                    <Button Content="Delete" Width="120" Click="DeleteUser" CommandParameter="{Binding DataContext.Id, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"> </Button>
+                                    <Button Content="Delete" Width="120" Click="DeleteUser" CommandParameter="{Binding DataContext.Id, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"></Button>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -34,7 +35,5 @@
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
-
-
     </Grid>
 </UserControl>

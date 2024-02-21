@@ -32,6 +32,8 @@ namespace key_managment_system.Models
         public Keycard Keycard { get; set; }
 
         public RoleEnum Role { get; set; }
+        [ForeignKey("Room")]
+        public int CurrentRoomId { get; set; }
 
         public User()
         {
