@@ -23,7 +23,36 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                                    <Button Content="Update" Click="UpdateOffice" CommandParameter="{Binding Path=Id}" Width="120" HorizontalAlignment="Center"></Button>
+                                    <Button Content="Update" Click="UpdateOffice" CommandParameter="{Binding Path=Id}" Width="120"
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"
+FontSize="13"
+FontFamily="Montserrat"
+Cursor="Hand"
+                                            VerticalAlignment="Center">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="#004f7c"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="Black"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Width="120" 
+                 Height="20"
+                 CornerRadius="9"
+                 Background="{TemplateBinding Background}">
+                                                    <ContentPresenter VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

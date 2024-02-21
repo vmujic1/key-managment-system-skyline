@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace key_managment_system.ViewModels
@@ -14,16 +15,17 @@ namespace key_managment_system.ViewModels
     {
         private int officeId {  get; set; }
         private AccessLevelEnum accessLevel { get; set; }
-        public EditOfficeAccessViewModel(int officeId, AccessLevelEnum accessLevel) {
+        public EditOfficeAccessViewModel(int officeId, int accessLevel) {
             this.officeId = officeId;
             
         }
 
-        public async void ExecuteUpdateOffice()
+        public async void ExecuteUpdateOffice(AccessLevelEnum access)
         {
             Context context = new Context();
-            Room room = await context.Rooms.FirstOrDefaultAsync(x => x.Id == officeId);
-            room.AccessLevel = accessLevel;
+            Room room = await context.Rooms.FindAsync(officeId);
+            room.AccessLevel = access;
+            MessageBox.Show(room.AccessLevel.ToString());
             await context.SaveChangesAsync();
         }
 

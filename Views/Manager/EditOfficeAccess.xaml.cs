@@ -1,4 +1,5 @@
-﻿using key_managment_system.ViewModels;
+﻿using key_managment_system.Models;
+using key_managment_system.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,20 +32,20 @@ namespace key_managment_system.Views.Manager
         {
             if (((ComboBoxItem)accessLevelCombo.SelectedItem).Content.ToString() == "Low")
             {
-                EditOfficeAccessViewModel viewModel = new EditOfficeAccessViewModel(id, Models.AccessLevelEnum.Low);
-                viewModel.ExecuteUpdateOffice();
+                EditOfficeAccessViewModel viewModel = new EditOfficeAccessViewModel(id, 0);
+                viewModel.ExecuteUpdateOffice(AccessLevelEnum.Low);
                 this.Close();
             }
             else if (((ComboBoxItem)accessLevelCombo.SelectedItem).Content.ToString() == "Medium")
             {
-                EditOfficeAccessViewModel viewModel = new EditOfficeAccessViewModel(id, Models.AccessLevelEnum.Medium);
-                viewModel.ExecuteUpdateOffice();
+                EditOfficeAccessViewModel viewModel = new EditOfficeAccessViewModel(id, 1);
+                viewModel.ExecuteUpdateOffice(AccessLevelEnum.Medium);
                 this.Close();
             }
             else if (((ComboBoxItem)accessLevelCombo.SelectedItem).Content.ToString() == "High")
             {
-                EditOfficeAccessViewModel viewModel = new EditOfficeAccessViewModel(id, Models.AccessLevelEnum.High);
-                viewModel.ExecuteUpdateOffice();
+                EditOfficeAccessViewModel viewModel = new EditOfficeAccessViewModel(id, 2);
+                viewModel.ExecuteUpdateOffice(AccessLevelEnum.High);
                 this.Close();
             }
             else
