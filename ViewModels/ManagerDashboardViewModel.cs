@@ -21,8 +21,14 @@ namespace key_managment_system.ViewModels
             ShowReportsCommand = new ViewModelCommand(ExecuteReportsCommand);
             ShowAddUserCommand = new ViewModelCommand(ExecuteShowAddUserCommand);
             LogoutUserCommand = new ViewModelCommand(ExecuteLogoutUserCommand);
+            ShowEditUserCommand = new ViewModelCommand(ExecuteShowEditUserCommand);
 
             ExecuteVisualisationCommand(null);
+        }
+
+        private void ExecuteShowEditUserCommand(object obj)
+        {
+            CurrentChildView = new EditUserViewModel();
         }
 
         private void ExecuteShowAddUserCommand(object obj)
@@ -61,5 +67,6 @@ namespace key_managment_system.ViewModels
         public ICommand ShowReportsCommand { get; }
         public ICommand ShowAddUserCommand { get; }
         public ICommand LogoutUserCommand { get; }
+        public ICommand ShowEditUserCommand{ get; }
     }
 }

@@ -24,7 +24,7 @@ namespace key_managment_system.Views.Manager
     /// <summary>
     /// Interaction logic for EditEmployee.xaml
     /// </summary>
-    public partial class EditEmployee : Page
+    public partial class EditEmployee : UserControl
     {
         private EditUserViewModel viewModel;
         public event EventHandler DataChanged;
@@ -46,7 +46,7 @@ namespace key_managment_system.Views.Manager
             DataGrid.ItemsSource = Users;
         }
 
-  
+
 
         private void UpdateUser(object sender, RoutedEventArgs e)
         {
