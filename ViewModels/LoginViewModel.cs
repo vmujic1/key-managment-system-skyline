@@ -110,18 +110,35 @@ namespace key_managment_system.ViewModels
             if (foundUser != null)
             {
                 correctCredentials = true;
+                SetLoggedInUser(foundUser.Id, foundUser.KeycardId, ((int)foundUser.Role));
             }
 
             if (correctCredentials)
             {
-                this.IsViewVisible = false;
-                ManagerDashboard man = new ManagerDashboard();
-                man.Visibility = Visibility.Visible;
+                if(foundUser.Role == RoleEnum.Manager || foundUser.Role == RoleEnum.Administrator) {
+                    this.IsViewVisible = false;
+                    ManagerDashboard man = new ManagerDashboard();
+                    man.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    this.IsViewVisible = false;
+                    EmployeeDashboard man = new EmployeeDashboard();
+                    man.Visibility = Visibility.Visible;
+
+                }
+               
             }
             else
             {
                 ErrorMessage = "Invalid credentials!";
             }
+        }
+        public void SetLoggedInUser(int userId, int keycardId, int role)
+        {
+            UserManager.Instance.UserId = userId;
+            UserManager.Instance.KeycardId = keycardId;
+            UserManager.Instance.Role = role;
         }
     }
 }
