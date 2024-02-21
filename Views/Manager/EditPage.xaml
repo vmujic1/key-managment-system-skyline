@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:key_managment_system.Views.Manager"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="400"
+      d:DesignHeight="900" d:DesignWidth="300"
       Title="EditPage"
       Background="WhiteSmoke">
 
@@ -144,7 +144,9 @@
 
             <Button 
              Content="Update"
-             Command="{Binding AddUserCommand}"
+
+                Click="CloseModal"
+             Command="{Binding UpdateUserCommand}"
              Foreground="White"
              FontSize="12"
              Cursor="Hand"                           

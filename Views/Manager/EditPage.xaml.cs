@@ -1,4 +1,5 @@
-﻿using System;
+﻿using key_managment_system.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,21 +22,31 @@ namespace key_managment_system.Views.Manager
     public partial class EditWindow : Window
     {
         private int id;
-
-        public EditWindow()
-        {
-            InitializeComponent();
-        }
+        private EditPageViewModel viewModel;
 
         public EditWindow(int id)
         {
             this.id = id;
+            viewModel = new EditPageViewModel(id);
             InitializeComponent();
+            DataContext = viewModel;
+            Width = 300;
+            Height = 600;
         }
 
         private void txtKeycardId_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void CloseModal(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            EditEmployee eK = new EditEmployee();
+            
+            
+            
+            
         }
     }
 }
