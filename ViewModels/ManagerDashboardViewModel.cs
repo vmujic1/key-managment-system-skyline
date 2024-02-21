@@ -63,9 +63,7 @@ namespace key_managment_system.ViewModels
         {
             var newWindow = new LoginView();
             newWindow.Show();
-            
         }
-
 
         public ViewModelBase CurrentChildView { 
             get => _currentChildView;

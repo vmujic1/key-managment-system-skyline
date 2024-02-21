@@ -1,4 +1,5 @@
-﻿using System;
+﻿using key_managment_system.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,19 +15,18 @@ namespace key_managment_system.ViewModels
 
         public EmployeeDashboardViewModel()
         {
-            ShowCardUsingCommand = new ViewModelCommand(ExecuteCardUsingCommand);
-            ShowRequestsEmployeeCommand = new ViewModelCommand(ExecuteRequestsEmployeeCommand);
-            ExecuteCardUsingCommand(null);
+            KeycardUsageReportCommand = new ViewModelCommand(ExecuteKeycardUsageReportCommand);
+            ExecuteVisualisationCommand(null);
         }
 
-        private void ExecuteCardUsingCommand(object obj)
+        private void ExecuteKeycardUsageReportCommand(object obj)
         {
-            CurrentChildView = new CardUsingViewModel();
+            CurrentChildView = new EmployeeKeycardUsageViewModel();
         }
 
-        private void ExecuteRequestsEmployeeCommand(object obj)
+        private void ExecuteVisualisationCommand(object obj)
         {
-            CurrentChildView = new RequestsEmployeeViewModel();
+            CurrentChildView = new VisualisationViewModel();
 
         }
 
@@ -40,7 +40,7 @@ namespace key_managment_system.ViewModels
             }
         }
 
-        public ICommand ShowCardUsingCommand { get; }
-        public ICommand ShowRequestsEmployeeCommand { get; }
+        public ICommand KeycardUsageReportCommand { get; }
+
     }
 }

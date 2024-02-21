@@ -9,8 +9,10 @@
          Title="EmployeeDashboard" Height="450" Width="800"
          WindowStartupLocation="CenterScreen"
          WindowStyle="None"
+        WindowState="Maximized"
          Background="Transparent"
          AllowsTransparency="True" 
+        MouseDown="Window_MouseDown"
 >
     <Window.DataContext>
         <viewModel:EmployeeDashboardViewModel/>
@@ -23,11 +25,14 @@
         <DataTemplate DataType="{x:Type viewModel:RequestsEmployeeViewModel}">
             <local:RequestsEmployee/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:EmployeeKeycardUsageViewModel}">
+        <local:EmployeeKeycardUsage/>
+        </DataTemplate>
     </Window.Resources>
     
      <Border CornerRadius="10" BorderThickness="1"  BorderBrush="WhiteSmoke">
 
-        <Grid>
+        <Grid Margin="0 3 0 0">
            <Grid.ColumnDefinitions>
                 <!--Nav-->
               <ColumnDefinition Width="350"/>
@@ -40,23 +45,16 @@
                     <StackPanel  Orientation="Horizontal" Height="200" Margin="0,0,0,25" HorizontalAlignment="Center">
                         <Image  Source="/Images/Logo3.png"></Image>
                     </StackPanel>
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Command="{Binding ShowCardUsingCommand}">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource menuButtonText}" Text="Card Using" ></TextBlock>
-
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Command="{Binding ShowRequestsEmployeeCommand}">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource menuButtonText}" Text="Requests"></TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-
                     <RadioButton Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource menuButtonText}" Text="Log Out"></TextBlock>
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Visualization" ></TextBlock>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}"
+                            Command="{Binding KeycardUsageReportCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Keycard usage record"></TextBlock>
                         </StackPanel>
 
                     </RadioButton>
@@ -70,6 +68,7 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition Width="10"/>
@@ -107,6 +106,48 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
+
+
+                    <Button x:Name="btnAdjustWindowSize"
+            BorderThickness="0"
+            Content=""
+            Foreground="White"
+            FontSize="16"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Grid.Column="2"
+            Click="btnAdjustWindowSize_Click"
+            Height="25"
+            VerticalAlignment="Top">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#004f7c"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Black"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Border Width="18"
+    Height="18"
+    CornerRadius="9"
+    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                  HorizontalAlignment="Center"/>
+                                    </Border>
+                                    <!-- Square shape with border only -->
+                                    <Rectangle Width="7" Height="7" Stroke="White" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+
                     <Button x:Name="btnClose"
                             BorderThickness="0"
                             Content="X"
@@ -114,7 +155,7 @@
                             FontSize="16"
         FontFamily="Montserrat"
         Cursor="Hand"
-        Grid.Column="2"
+        Grid.Column="3"
         Click="btnClose_Click"
         Height="25"
         VerticalAlignment="Top">

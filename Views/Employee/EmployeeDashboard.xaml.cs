@@ -32,5 +32,26 @@ namespace key_managment_system.Views
         {
             Application.Current.Shutdown();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+        private void btnAdjustWindowSize_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            if (this.WindowState != WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+
+        }
+
     }
 }
