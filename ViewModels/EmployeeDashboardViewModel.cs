@@ -21,7 +21,7 @@ namespace key_managment_system.ViewModels
 
         private void ExecuteCardUsingCommand(object obj)
         {
-            CurrentChildView = new ReportsViewModel();
+            CurrentChildView = new CardUsingViewModel();
         }
 
         private void ExecuteRequestsEmployeeCommand(object obj)

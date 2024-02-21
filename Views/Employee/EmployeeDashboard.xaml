@@ -10,7 +10,8 @@
          WindowStartupLocation="CenterScreen"
          WindowStyle="None"
          Background="Transparent"
-         AllowsTransparency="True" >
+         AllowsTransparency="True" 
+>
     <Window.DataContext>
         <viewModel:EmployeeDashboardViewModel/>
     </Window.DataContext>
