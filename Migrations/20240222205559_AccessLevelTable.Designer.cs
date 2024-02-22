@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using key_managment_system.DBContexts;
 
@@ -10,35 +11,16 @@ using key_managment_system.DBContexts;
 namespace key_managment_system.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContexModelSnapshot : ModelSnapshot
+    [Migration("20240222205559_AccessLevelTable")]
+    partial class AccessLevelTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("key_managment_system.Models.AccessRequest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoomId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoomId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AccessRequests");
-                });
 
             modelBuilder.Entity("key_managment_system.Models.Keycard", b =>
                 {
@@ -171,25 +153,6 @@ namespace key_managment_system.Migrations
                     b.HasIndex("KeycardId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("key_managment_system.Models.AccessRequest", b =>
-                {
-                    b.HasOne("key_managment_system.Models.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("key_managment_system.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Room");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("key_managment_system.Models.KeycardRequest", b =>
