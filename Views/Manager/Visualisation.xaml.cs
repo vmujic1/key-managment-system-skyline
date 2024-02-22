@@ -346,6 +346,11 @@ namespace key_managment_system.Views.Manager
             
             UpdateDoors();
 
+            if (UserManager.Instance.CurrentRoomId == 0)
+            {
+                UserManager.Instance.CurrentRoomId = 6;
+                UpdateUserDatabase();
+            }
 
 
         }
