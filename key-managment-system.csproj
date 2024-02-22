@@ -11,6 +11,7 @@
 
 	  <ItemGroup>
     <None Remove="Images\add-user-logo.png" />
+    <None Remove="Images\edit-user-logo.png" />
     <None Remove="Images\info-icon-blue.png" />
     <None Remove="Images\info-icon.png" />
     <None Remove="Images\logo1.png" />
@@ -24,6 +25,7 @@
   </ItemGroup>
 
 	  <ItemGroup>
+	    <Resource Include="Images\edit-user-logo.png" />
 	    <Resource Include="Images\info-icon-blue.png" />
 	  </ItemGroup>
 

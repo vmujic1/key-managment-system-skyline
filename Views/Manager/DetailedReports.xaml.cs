@@ -46,7 +46,6 @@ namespace key_managment_system.Views.Manager
         private void UpdateUser(object sender, RoutedEventArgs e)
         {
             int Id = (int)((Button)sender).CommandParameter;
-            MessageBox.Show(Id.ToString());
             DetailedReportsPage edit = new DetailedReportsPage(Id);
             edit.Show();
         }

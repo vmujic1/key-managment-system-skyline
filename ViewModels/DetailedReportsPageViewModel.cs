@@ -53,7 +53,7 @@ namespace key_managment_system.ViewModels
             var context = new Context();
             var userData = await context.Users.FindAsync(_userId);
             var keycard = await context.Keycards.FirstOrDefaultAsync(k => k.Id.Equals(userData.KeycardId));
-            MessageBox.Show(StartDate.ToString());
+            
             userData.FirstName = FirstName;
             userData.LastName = LastName;
 

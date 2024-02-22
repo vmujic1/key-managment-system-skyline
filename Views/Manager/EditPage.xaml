@@ -6,8 +6,9 @@
       xmlns:local="clr-namespace:key_managment_system.Views.Manager"
       mc:Ignorable="d" 
       d:DesignHeight="900" d:DesignWidth="300"
-      Title="EditPage"
-      Background="WhiteSmoke">
+      Title="Edit Page"
+      Background="WhiteSmoke"
+      WindowStyle="ToolWindow">
 
     <Grid>
 
@@ -17,8 +18,8 @@
           HorizontalAlignment="Center"
           VerticalAlignment="Center">
 
-            <Image Source="/Images/add-user-logo.png"
-         Width="220" Height="100"/>
+            <Image Source="/Images/edit-user-logo.png"
+         Width="220" Height="100" Margin="30 0 0 0"/>
 
             <TextBlock Text=""
              Foreground="Black"
@@ -120,32 +121,29 @@
             FontFamily="Montserrat"                             
             Margin="0,30,0,0"/>
 
-            <TextBox x:Name="accessLevel"
-          Text="{Binding AccessLevel, UpdateSourceTrigger=PropertyChanged}"
-          FontSize="13"
-          FontWeight="Medium"
-          FontFamily="Montserrat"                            
-          Foreground="Black"
-          CaretBrush="LightGray"
-          BorderBrush="DarkGray"
-          BorderThickness="0,0,0,2"
-          Height="28"
-          VerticalContentAlignment="Center"
-          Margin="0 5 0 0"
-          Padding="5 0 0 0">        
-            </TextBox>
-
-
-
-
-
-
+            <ComboBox Grid.Row="3"
+                Text="{Binding AccessLevel, UpdateSourceTrigger=PropertyChanged}"
+                Height="25"
+                x:Name="accessLevel"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="Black"
+                BorderBrush="DarkGray"
+                BorderThickness="0,0,0,2"
+                VerticalContentAlignment="Center"
+                Margin="0 5 0 0"
+                Width="250"
+                Padding="5 0 0 0">
+                <ComboBoxItem Content="Low"/>
+                <ComboBoxItem Content="Medium"/>
+                <ComboBoxItem Content="High"/>
+            </ComboBox>
 
 
             <Button 
              Content="Update"
-
-                Click="CloseModal"
+             Click="CloseModal"
              Command="{Binding UpdateUserCommand}"
              Foreground="White"
              FontSize="12"
@@ -154,7 +152,7 @@
 
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="#004f7c"/>
+                        <Setter Property="Background" Value="Navy"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="Black"/>

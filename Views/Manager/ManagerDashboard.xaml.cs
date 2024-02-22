@@ -24,7 +24,6 @@ namespace key_managment_system.Views.Manager
         public ManagerDashboard()
         {
             InitializeComponent();
-            System.Windows.MessageBox.Show(UserManager.Instance.UserId.ToString());
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)

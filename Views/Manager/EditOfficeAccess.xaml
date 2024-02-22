@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:key_managment_system.Views.Manager"
         mc:Ignorable="d"
-        Title="EditOfficeAccess" Height="350" Width="300"
-        WindowStyle="None"
-        WindowStartupLocation="CenterScreen">
+        Title="EditOfficeAccess" Height="400" Width="300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ToolWindow">
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="150"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
@@ -28,75 +28,6 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
-
-            <Button x:Name="btnMinimize"
-                    BorderThickness="0"
-                    Content="-"
-                    Foreground="White"
-                    FontSize="16"
-                    FontFamily="Montserrat"
-                    Cursor="Hand"
-                    Grid.Column="1"
-                    Click="btnMinimize_Click"
-                    Height="25"
-                    VerticalAlignment="Top">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#004f7c"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="18" 
-                                Height="18"
-                                CornerRadius="9"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Button x:Name="btnClose"
-BorderThickness="0"
-Content="X"
-Foreground="White"
-FontSize="16"
-FontFamily="Montserrat"
-Cursor="Hand"
-Grid.Column="2"
-Click="btnClose_Click"
-Height="25"
-VerticalAlignment="Top">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#004f7c"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="18" 
-            Height="18"
-            CornerRadius="9"
-            Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                          HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
         </Grid>
         <Image Source="../../Images/office-icon.png"
                 Margin="0,10,0,10"
@@ -122,21 +53,21 @@ VerticalAlignment="Top">
 
         <Button x:Name="btnSubmit"
                 Grid.Row="4"
-        BorderThickness="0"
-        Content="Submit"
-        Foreground="White"
-        FontSize="16"
-        FontFamily="Montserrat"
-        Cursor="Hand"
-        Grid.Column="1"
-        Click="btnSubmit_Click"
-        Height="30"
-        Width="200"
-        VerticalAlignment="Top"
+                BorderThickness="0"
+                Content="Update"
+                Foreground="White"
+                FontSize="16"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Grid.Column="1"
+                Click="btnSubmit_Click"
+                Height="50"
+                Width="200"
+                VerticalAlignment="Top"
                 Margin="0,10,0,0">
             <Button.Style>
                 <Style TargetType="Button">
-                    <Setter Property="Background" Value="#004f7c"/>
+                    <Setter Property="Background" Value="Navy"/>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="Black"/>
@@ -148,7 +79,7 @@ VerticalAlignment="Top">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Width="200" 
-                    Height="20"
+                    Height="40"
                     CornerRadius="9"
                     Background="{TemplateBinding Background}">
                         <ContentPresenter VerticalAlignment="Center"

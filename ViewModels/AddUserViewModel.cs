@@ -2,6 +2,7 @@
 using key_managment_system.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace key_managment_system.ViewModels
@@ -19,6 +20,12 @@ namespace key_managment_system.ViewModels
         public AddUserViewModel()
         {
             AddUserCommand = new ViewModelCommand(ExecuteAddUserCommand, CanExecuteAddUserCommand);
+        }
+
+        public AddUserViewModel(string role)
+        {
+            AddUserCommand = new ViewModelCommand(ExecuteAddUserCommand, CanExecuteAddUserCommand);
+            _role = role;
         }
 
         public ICommand AddUserCommand { get; }
@@ -83,15 +90,12 @@ namespace key_managment_system.ViewModels
                 var c = Email;
                 var d = KeycardId;
 
-                MessageBox.Show(Role.ToString());
-                MessageBox.Show(RoleEnum.Manager.ToString());
                 AccessLevelEnum accessLevel;
                 RoleEnum role;
+                
 
                 if (Role.ToString() == RoleEnum.Manager.ToString())
                 {
-                    MessageBox.Show("BRAO");
-
                     accessLevel = AccessLevelEnum.Medium;
                     role = RoleEnum.Manager;
                 }

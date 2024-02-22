@@ -73,10 +73,6 @@ namespace key_managment_system.Views.Manager
                await Task.Delay(500);
                 Users = await viewModel.GetUsersFromDatabaseAsync();
                 DataGrid.ItemsSource = Users;
-
-
-
-
             }
             else
             {

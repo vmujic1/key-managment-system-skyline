@@ -149,7 +149,7 @@
 
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="#004f7c"/>
+                        <Setter Property="Background" Value="Navy"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="Black"/>

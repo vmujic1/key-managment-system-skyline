@@ -6,89 +6,20 @@
         xmlns:local="clr-namespace:key_managment_system.Views.Manager"
         xmlns:viewModel="clr-namespace:key_managment_system.ViewModels"
         mc:Ignorable="d"
-        Title="InfoRoomPage" Height="450" Width="800"
-        WindowStyle="None"
+        Title="Info Room Page" Height="450" Width="800"
+        WindowStyle="ToolWindow"
         WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModel:InfoRoomPageViewModel/>
     </Window.DataContext>
 
-    <Grid>
+    <Grid Margin="10 0 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" HorizontalAlignment="Right">
-            <Button x:Name="btnMinimize"
-                    BorderThickness="0"
-                    Content="-"
-                    Foreground="White"
-                    FontSize="16"
-                    FontFamily="Montserrat"
-                    Cursor="Hand"
-                    Grid.Column="1"
-                    Click="btnMinimize_Click"
-                    Height="25"
-                    VerticalAlignment="Top"
-                    Margin="0,0,5,0">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#004f7c"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="18" 
-                                Height="18"
-                                CornerRadius="9"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Button x:Name="btnClose"
-                    BorderThickness="0"
-                    Content="X"
-                    Foreground="White"
-                    FontSize="16"
-                    FontFamily="Montserrat"
-                    Cursor="Hand"
-                    Grid.Column="2"
-                    Click="btnClose_Click"
-                    Height="25"
-                    VerticalAlignment="Top"
-                    Margin="5,0,10,0">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#004f7c"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Width="18" 
-                            Height="18"
-                            CornerRadius="9"
-                            Background="{TemplateBinding Background}">
-                            <ContentPresenter VerticalAlignment="Center"
-                          HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+           
         </DockPanel>
         
 

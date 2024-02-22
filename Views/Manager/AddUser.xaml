@@ -155,20 +155,23 @@
             FontFamily="Montserrat"                             
             Margin="0,30,0,0"/>
 
-            <TextBox x:Name="txtRole"
-                  Text="{Binding Role, UpdateSourceTrigger=PropertyChanged}"
-                  FontSize="13"
-                  FontWeight="Medium"
-                  FontFamily="Montserrat"                            
-                  Foreground="Black"
-                  CaretBrush="LightGray"
-                  BorderBrush="DarkGray"
-                  BorderThickness="0,0,0,2"
-                  Height="28"
-                  VerticalContentAlignment="Center"
-                  Margin="0 5 0 0"
+            <ComboBox Grid.Row="3"
+                    Text="{Binding Role, UpdateSourceTrigger=PropertyChanged}"
+                    Height="25"
+                    x:Name="roleCombo"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"                            
+                    Foreground="Black"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    VerticalContentAlignment="Center"
+                    Margin="0 5 0 0"
+                    Width="250"
                     Padding="5 0 0 0">
-            </TextBox>
+                <ComboBoxItem Content="Manager"/>
+                <ComboBoxItem Content="Employee"/>
+            </ComboBox>
 
 
 
@@ -183,7 +186,7 @@
 
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="#004f7c"/>
+                        <Setter Property="Background" Value="Navy"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="Black"/>

@@ -67,7 +67,6 @@ namespace key_managment_system.ViewModels
 
             // Heširanje passworda
             string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(Password,13);
-            MessageBox.Show(passwordHash);
             if (user != null)
             {
                 user.Username = Username;

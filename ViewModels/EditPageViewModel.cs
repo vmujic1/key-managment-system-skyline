@@ -16,16 +16,12 @@ namespace key_managment_system.ViewModels
     public class EditPageViewModel : ViewModelBase
 
     {
-
-
         private int _userId;
         private string _firstName;
         private string _lastName;
         private string _email;
         private string _accessLevel;
         private string _errorMessage;
-
-        
 
         
         public string FirstName
@@ -46,11 +42,6 @@ namespace key_managment_system.ViewModels
         public ICommand UpdateUserCommand { get; }
 
 
-
-
-
-
-
         public EditPageViewModel(int userId)
         {
             _userId = userId;
@@ -67,7 +58,7 @@ namespace key_managment_system.ViewModels
         private async void ExecuteUpdateUserCommand(object obj)
         {
             var context = new Context();
-            MessageBox.Show(_userId.ToString());
+
             var userData = await context.Users.FindAsync(_userId);
             var keycard = await context.Keycards.FirstOrDefaultAsync(k => k.Id.Equals(userData.KeycardId));
 
@@ -82,7 +73,6 @@ namespace key_managment_system.ViewModels
             await context.SaveChangesAsync();
 
             if (AccessLevel.Equals("Low")) {
-                MessageBox.Show("Evo ga");
                 keycard.AccessLevel = AccessLevelEnum.Low;
                 await context.SaveChangesAsync();
 
