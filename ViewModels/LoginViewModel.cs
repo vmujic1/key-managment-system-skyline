@@ -65,10 +65,13 @@ namespace key_managment_system.ViewModels
             User? user = await context.Users.FirstOrDefaultAsync(e => e.KeycardId == keycard.Id);
             List<Keycard> cards = await context.Keycards.ToListAsync();
 
+            // Heširanje passworda
+            string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(Password,13);
+            MessageBox.Show(passwordHash);
             if (user != null)
             {
                 user.Username = Username;
-                user.Password = Password;
+                user.Password = passwordHash;
                 await context.SaveChangesAsync();
                 this.IsViewVisible = false;
                 LoginView man = new LoginView();
@@ -92,22 +95,10 @@ namespace key_managment_system.ViewModels
         private async void ExecuteLoginCommand(object obj)
         {
             var context = new Context();
-            var foundUser = await context.Users.FirstOrDefaultAsync(user => user.Username == Username && user.Password == Password);
-            //List<User> users = await context.Users.ToListAsync();
+            var foundUser = await context.Users.FirstOrDefaultAsync(user => user.Username == Username); 
             bool correctCredentials = false;
 
-            //foreach(var user in users)
-            //{
-            //    if(user.Username.Equals(Username) && user.Password.Equals(Password))
-            //    {
-            //        correctCredentials = true;
-
-            //        break;
-            //    }
-
-            //}
-
-            if (foundUser != null)
+            if (foundUser != null && BCrypt.Net.BCrypt.EnhancedVerify(Password, foundUser.Password))
             {
                 correctCredentials = true;
                 SetLoggedInUser(foundUser.Id, foundUser.KeycardId, ((int)foundUser.Role),foundUser.Username, foundUser.FirstName, foundUser.LastName);

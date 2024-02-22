@@ -1,4 +1,7 @@
-﻿using System;
+﻿using key_managment_system.DBContexts;
+using key_managment_system.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,23 @@ namespace key_managment_system.Views
         public LoginView()
         {
             InitializeComponent();
+            //HashAllPaswords();
+        }
+
+        public async void HashAllPaswords()
+        {
+            var context = new Context();
+
+            List<User> users = new List<User>();
+
+            users = await (context.Users.ToListAsync());
+
+            foreach (var user in users)
+            {
+                user.Password = BCrypt.Net.BCrypt.EnhancedHashPassword(user.Password, 13);
+                await context.SaveChangesAsync();
+            }
+            
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
