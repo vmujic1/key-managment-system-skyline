@@ -95,17 +95,19 @@ namespace key_managment_system.ViewModels
         {
             var context = new Context();
             var foundUser = await context.Users.FirstOrDefaultAsync(user => user.Username == Username);
-            var foundCard = await context.Keycards.FirstOrDefaultAsync(card => card.Id == foundUser.KeycardId);
             bool correctCredentials = false;
 
             if (foundUser != null && BCrypt.Net.BCrypt.EnhancedVerify(Password, foundUser.Password))
             {
+                var foundCard = await context.Keycards.FirstOrDefaultAsync(card => card.Id == foundUser.KeycardId);
+
                 correctCredentials = true;
                 SetLoggedInUser(foundUser.Id, foundUser.KeycardId, ((int)foundUser.Role),foundUser.Username, foundUser.FirstName, foundUser.LastName, foundUser.CurrentRoomId, foundCard.SerialNumber);
             }
 
             if (correctCredentials)
             {
+
                 if(foundUser.Role == RoleEnum.Manager || foundUser.Role == RoleEnum.Administrator) {
                     this.IsViewVisible = false;
                     ManagerDashboard man = new ManagerDashboard();

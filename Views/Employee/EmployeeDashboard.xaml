@@ -84,7 +84,7 @@
 
                     </RadioButton>
 
-                    <StackPanel Margin=" 0 150 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Margin=" 0 370 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Image Source="../../Images/user-icon.png" Height="40"></Image>
                         <TextBlock Text="{Binding CurrentUser}" FontSize="18" HorizontalAlignment="Center" Foreground="White" Margin="7 10 0 0"/>
 
