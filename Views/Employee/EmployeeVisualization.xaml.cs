@@ -331,7 +331,12 @@ namespace key_managment_system.Views.Employee
             }
         }
 
+        public void SendNotification(int roomId, int userId)
+        {
+            PermissionAlert alert = new PermissionAlert(roomId, userId);
+            alert.ShowDialog();
 
+        }
 
         public EmployeeVisualization()
         {
@@ -349,149 +354,331 @@ namespace key_managment_system.Views.Employee
         }
 
 
-        public void StrBtnDown(object sender, RoutedEventArgs e)
+        public async void StrBtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 9)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 12);
-                UserManager.Instance.CurrentRoomId = 12;
+                CheckUserPermission(12, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(12, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 12);
+                    UserManager.Instance.CurrentRoomId = 12;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 9);
-                UserManager.Instance.CurrentRoomId = 9;
+                CheckUserPermission(9, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(9, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 9);
+                    UserManager.Instance.CurrentRoomId = 9;
+                }
             }
 
             UpdateDoors();
 
         }
 
-        public void Qr3BtnDown(object sender, RoutedEventArgs e)
+        public async void Qr3BtnDown(object sender, RoutedEventArgs e)
         {
 
             if (UserManager.Instance.CurrentRoomId == 5)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 12);
-                UserManager.Instance.CurrentRoomId = 12;
+                CheckUserPermission(12, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(12, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 12);
+                    UserManager.Instance.CurrentRoomId = 12;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 5);
-                UserManager.Instance.CurrentRoomId = 5;
+                CheckUserPermission(5, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(5, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 5);
+                    UserManager.Instance.CurrentRoomId = 5;
+                }
             }
 
             UpdateDoors();
 
         }
 
-        public void Qr2BtnDown(object sender, RoutedEventArgs e)
+        public async void Qr2BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 4)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 4);
-                UserManager.Instance.CurrentRoomId = 4;
+                CheckUserPermission(4, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(4, UserManager.Instance.UserId);
+                }
+                else
+                {
+
+                    AddRecord(UserManager.Instance.SerialNumber, 4);
+                    UserManager.Instance.CurrentRoomId = 4;
+
+                }
             }
 
             UpdateDoors();
         }
 
-        public void Qr1BtnDown(object sender, RoutedEventArgs e)
+        public async void Qr1BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 3)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 3);
-                UserManager.Instance.CurrentRoomId = 3;
+                CheckUserPermission(3, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(3, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 3);
+                    UserManager.Instance.CurrentRoomId = 3;
+                }
             }
 
             UpdateDoors();
         }
 
-        public void Cr2BtnDown(object sender, RoutedEventArgs e)
+        public async void Cr2BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 2)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 2);
-                UserManager.Instance.CurrentRoomId = 2;
+                CheckUserPermission(2, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(2, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 2);
+                    UserManager.Instance.CurrentRoomId = 2;
+                }
             }
 
             UpdateDoors();
         }
-        public void Cr1BtnDown(object sender, RoutedEventArgs e)
+        public async void Cr1BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 1)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 1);
-                UserManager.Instance.CurrentRoomId = 1;
+                CheckUserPermission(1, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(1, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 1);
+                    UserManager.Instance.CurrentRoomId = 1;
+                }
             }
 
             UpdateDoors();
         }
 
-        public void StaBtnDown(object sender, RoutedEventArgs e)
+        public async void StaBtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 6)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 6);
+                CheckUserPermission(6, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
 
-                UserManager.Instance.CurrentRoomId = 6;
+                    SendNotification(6, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 6);
+
+                    UserManager.Instance.CurrentRoomId = 6;
+                }
             }
 
             UpdateDoors();
         }
 
-        private void Of1BtnDown(object sender, RoutedEventArgs e)
+        private async void Of1BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 7)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 7);
-                UserManager.Instance.CurrentRoomId = 7;
+                CheckUserPermission(7, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(7, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 7);
+                    UserManager.Instance.CurrentRoomId = 7;
+                }
             }
 
             UpdateDoors();
 
 
         }
-        private void Of2BtnDown(object sender, RoutedEventArgs e)
+        private async void Of2BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 8)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 8);
-                UserManager.Instance.CurrentRoomId = 8;
+                CheckUserPermission(8, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(8, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 8);
+                    UserManager.Instance.CurrentRoomId = 8;
+                }
             }
 
             UpdateDoors();
@@ -502,37 +689,79 @@ namespace key_managment_system.Views.Employee
 
         }
 
-        public void ToBtnDown(object sender, RoutedEventArgs e)
+        public async void ToBtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 10)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 10);
-                UserManager.Instance.CurrentRoomId = 10;
+                CheckUserPermission(10, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(10, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 10);
+                    UserManager.Instance.CurrentRoomId = 10;
+                }
             }
 
             UpdateDoors();
         }
 
-        public void WsBtnDown(object sender, RoutedEventArgs e)
+        public async void WsBtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 12)
             {
-                AddRecord(UserManager.Instance.SerialNumber, 11);
-                UserManager.Instance.CurrentRoomId = 11;
+                CheckUserPermission(11, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(11, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 11);
+                    UserManager.Instance.CurrentRoomId = 11;
+                }
             }
             else
             {
-                AddRecord(UserManager.Instance.SerialNumber, 12);
-                UserManager.Instance.CurrentRoomId = 12;
+                CheckUserPermission(12, UserManager.Instance.UserId);
+                await Task.Delay(300);
+                if ((bool)!Permission)
+                {
+
+                    SendNotification(12, UserManager.Instance.UserId);
+                }
+                else
+                {
+                    AddRecord(UserManager.Instance.SerialNumber, 12);
+                    UserManager.Instance.CurrentRoomId = 12;
+                }
             }
 
 
             UpdateDoors();
         }
+
+
     }
 }
