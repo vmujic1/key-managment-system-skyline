@@ -38,10 +38,9 @@ namespace key_managment_system.Views.Manager
             var row = await c.KeycardRequests.FirstOrDefaultAsync(k => k.KeycardId == Id);
             c.KeycardRequests.Remove(row);
             await c.SaveChangesAsync();
-
-
-
             this.Close();
+            MessageBox.Show("RFID successfully changed");
+
 
         }
     }
