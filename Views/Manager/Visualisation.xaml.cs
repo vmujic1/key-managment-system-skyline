@@ -1,6 +1,7 @@
 ﻿using key_managment_system.DBContexts;
 using key_managment_system.Models;
 using key_managment_system.ViewModels;
+using key_managment_system.Views.Employee;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -237,7 +238,11 @@ namespace key_managment_system.Views.Manager
             }
         }
 
-        public void SendNotification(int roomId, int userId) { }
+        public void SendNotification(int roomId, int userId) {
+            PermissionAlert alert = new PermissionAlert(roomId, userId);
+            alert.ShowDialog();
+
+        }
 
         public Visualisation()
         {
@@ -334,7 +339,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(12, UserManager.Instance.UserId);
                 }
                 else
@@ -349,7 +354,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(9, UserManager.Instance.UserId);
                 }
                 else
@@ -372,7 +377,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(12, UserManager.Instance.UserId);
                 }
                 else
@@ -387,7 +392,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(5, UserManager.Instance.UserId);
                 }
                 else
@@ -409,7 +414,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -424,7 +429,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(4, UserManager.Instance.UserId);
                 }
                 else
@@ -447,7 +452,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -462,7 +467,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(3, UserManager.Instance.UserId);
                 }
                 else
@@ -483,7 +488,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -498,7 +503,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(2, UserManager.Instance.UserId);
                 }
                 else
@@ -518,7 +523,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -533,7 +538,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(1, UserManager.Instance.UserId);
                 }
                 else
@@ -554,7 +559,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -569,7 +574,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(6, UserManager.Instance.UserId);
                 }
                 else
@@ -591,7 +596,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -606,7 +611,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(7, UserManager.Instance.UserId);
                 }
                 else
@@ -628,7 +633,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -643,7 +648,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(8, UserManager.Instance.UserId);
                 }
                 else
@@ -669,7 +674,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -684,7 +689,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(10, UserManager.Instance.UserId);
                 }
                 else
@@ -705,7 +710,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(11, UserManager.Instance.UserId);
                 }
                 else
@@ -720,7 +725,7 @@ namespace key_managment_system.Views.Manager
                 await Task.Delay(300);
                 if ((bool)!Permission)
                 {
-                    MessageBox.Show("Permission is not allowed!");
+                    
                     SendNotification(12, UserManager.Instance.UserId);
                 }
                 else
