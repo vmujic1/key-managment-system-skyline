@@ -1,6 +1,8 @@
 ﻿using key_managment_system.DBContexts;
 using key_managment_system.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -116,7 +118,7 @@ namespace key_managment_system.ViewModels
                 keycard.AccessLevel = accessLevel;
                 await context.Keycards.AddAsync(keycard);
                 await context.SaveChangesAsync();
-
+                SendEmail(Email, "Welcome to Key Management System - Your RFID Information", keycard.SerialNumber);
                 User user = new User
                 {
                     FirstName = a,
@@ -141,5 +143,45 @@ namespace key_managment_system.ViewModels
                 ErrorMessage = "Keycard with the same serial number already exists!";
             }
         }
+        private void SendEmail(string toEmail, string subject, string keycardSerialNumber)
+        {
+            try
+            {
+                // Set your Gmail SMTP server and credentials
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                smtpClient.Port = 587; // Gmail SMTP port
+                smtpClient.Credentials = new NetworkCredential("mujicvedran7@gmail.com", "hjqn ardh rtox baby");
+                smtpClient.EnableSsl = true; // Enable SSL for secure connections
+
+                // Create the email message
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("mujicvedran7@gmail.com");
+                mailMessage.To.Add(toEmail);
+                mailMessage.Subject = subject;
+
+                // Construct a more user-friendly and informative email body
+                string body = $"Hello {FirstName} {LastName},\n\n";
+                body += "Welcome to the Key Management System! Your registration was successful.\n";
+                body += $"To log in, please use the following RFID: {keycardSerialNumber}\n\n";
+                body += "Thank you for joining us!\n\n";
+                body += "Best regards,\nThe Key Management System Team";
+
+                mailMessage.Body = body;
+
+                // Send the email
+                smtpClient.Send(mailMessage);
+
+                MessageBox.Show("Email sent successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending email: {ex.Message}");
+            }
+        }
+
+
+
     }
+
+
 }
