@@ -1,6 +1,8 @@
-﻿using key_managment_system.Dtos;
+﻿using key_managment_system.DBContexts;
+using key_managment_system.Dtos;
 using key_managment_system.NewFolder;
 using key_managment_system.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,12 +29,21 @@ namespace key_managment_system.Views.Manager
         private int roomId;
 
         public List<UserOfficeDto> Users { get; set; }
+
+        public async void UpdateTitle()
+        {
+            Context context = new Context();
+            var room = await context.Rooms.FirstOrDefaultAsync(r  => r.Id == roomId);
+            this.Title = room.Name;
+        }
         public InfoRoomPage(int id)
         {
             viewModel = new InfoRoomPageViewModel();
             InitializeComponent();
             Loaded += Load;
             roomId = id;
+            UpdateTitle();
+            
         }
 
         private async void Load(object sender, RoutedEventArgs args)

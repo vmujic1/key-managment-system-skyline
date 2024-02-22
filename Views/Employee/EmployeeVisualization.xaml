@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="key_managment_system.Views.Employee.EmployeeVisualization"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:key_managment_system.Views.Employee"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="GhostWhite">
+        <Rectangle x:Name="o11" Fill="LightGray" HorizontalAlignment="Left" Height="540" Margin="35,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="734" RenderTransformOrigin="1.166,0.461"/>
+        <Rectangle x:Name="o12" Fill="LightGray" HorizontalAlignment="Left" Height="151" Margin="35,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" RadiusX="0" RadiusY="0"/>
+        <Rectangle x:Name="o5" Fill="LightGray" HorizontalAlignment="Left" Height="75" Margin="335,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
+        <Rectangle x:Name="o9" Fill="LightGray" HorizontalAlignment="Left" Height="76" Margin="335,116,0,0" Stroke="Black" VerticalAlignment="Top" Width="70"/>
+        <Rectangle x:Name="o10" Fill="LightGray" HorizontalAlignment="Left" Height="113" Margin="405,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle x:Name="o6" Fill="LightGray" HorizontalAlignment="Left" Height="185" Margin="279,192,0,0" Stroke="Black" VerticalAlignment="Top" Width="236"/>
+        <Rectangle x:Name="o7" Fill="LightGray" HorizontalAlignment="Left" Height="130" Margin="279,451,0,0" Stroke="Black" VerticalAlignment="Top" Width="126"/>
+        <Rectangle x:Name="o8" Fill="LightGray" HorizontalAlignment="Left" Height="130" Margin="405,451,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle x:Name="o4" Fill="LightGray" HorizontalAlignment="Left" Height="65" Margin="35,516,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+        <Rectangle x:Name="o3" Fill="LightGray" HorizontalAlignment="Left" Height="65" Margin="515,516,0,0" Stroke="Black" VerticalAlignment="Top" Width="75"/>
+        <Rectangle x:Name="o2" Fill="LightGray" HorizontalAlignment="Left" Height="172" Margin="659,409,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Rectangle x:Name="o1" Fill="LightGray" HorizontalAlignment="Left" Height="185" Margin="659,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="WsBtn" Click="WsBtnDown" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="199,177,0,0" VerticalAlignment="Top"/>
+        <Button Click="StrBtnDown" x:Name="StrBtn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="316,149,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Click="Qr3BtnDown" x:Name="Qr3Btn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="316,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Click="ToBtnDown" x:Name="ToBtn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="493,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Click="Cr1BtnDown" x:Name="Cr1Btn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="637,265,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Click="Cr2BtnDown" x:Name="Cr2Btn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="639,424,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Click="Qr2BtnDown" x:Name="Qr2Btn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="53,506,0,0" VerticalAlignment="Top" />
+        <Button Click="Of1BtnDown" x:Name="Of1Btn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="322,441,0,0" VerticalAlignment="Top"/>
+        <Button Click="Of2BtnDown" x:Name="Of2Btn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="440,441,0,0" VerticalAlignment="Top"/>
+        <Button Click="Qr1BtnDown" x:Name="Qr1Btn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="533,501,0,0" VerticalAlignment="Top"/>
+        <Button Click="StaBtnDown" x:Name="StaBtn" Content="         " Background="BurlyWood" HorizontalAlignment="Left" Margin="291,362,0,0" VerticalAlignment="Top"/>
+        
+
+    </Grid>
+</UserControl>

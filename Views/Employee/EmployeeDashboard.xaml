@@ -31,6 +31,10 @@
         <DataTemplate DataType="{x:Type viewModel:ShowProfileViewModel}">
             <local:Profile/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:EmployeeVisualizationViewModel}">
+            <local:EmployeeVisualization/>
+        </DataTemplate>
     </Window.Resources>
     
      <Border CornerRadius="10" BorderThickness="1"  BorderBrush="WhiteSmoke">
@@ -48,7 +52,8 @@
                     <StackPanel  Orientation="Horizontal" Height="200" Margin="0,0,0,25" HorizontalAlignment="Center">
                         <Image  Source="/Images/Logo3.png"></Image>
                     </StackPanel>
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowVisualizationCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource menuButtonText}" Text="Visualization" ></TextBlock>
                         </StackPanel>
