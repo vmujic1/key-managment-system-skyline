@@ -44,7 +44,7 @@ namespace key_managment_system.Views.Manager
             var req = await c.KeycardRequests.FirstOrDefaultAsync(k => k.Id == Id);
             RequestNewKeycard edit = new RequestNewKeycard(req.KeycardId);
             bool? dialogResult = edit.ShowDialog();
-            DataGrid.ItemsSource = await c.KeycardRequests.ToListAsync();g
+            DataGrid.ItemsSource = await c.KeycardRequests.ToListAsync();
             await Task.Delay(500);
 
 
