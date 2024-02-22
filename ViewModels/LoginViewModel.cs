@@ -1,6 +1,7 @@
 ﻿using key_managment_system.DBContexts;
 using key_managment_system.Models;
 using key_managment_system.Views;
+using key_managment_system.Views.Employee;
 using key_managment_system.Views.Manager;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -93,6 +94,7 @@ namespace key_managment_system.ViewModels
         {
             var context = new Context();
             var foundUser = await context.Users.FirstOrDefaultAsync(user => user.Username == Username && user.Password == Password);
+            
             //List<User> users = await context.Users.ToListAsync();
             bool correctCredentials = false;
 
@@ -110,9 +112,11 @@ namespace key_managment_system.ViewModels
             if (foundUser != null)
             {
                 correctCredentials = true;
+                
             }
 
-            if (correctCredentials)
+            if (correctCredentials  && foundUser.Role  == RoleEnum.Manager)
+
             {
                 this.IsViewVisible = false;
                 ManagerDashboard man = new ManagerDashboard();
@@ -120,7 +124,34 @@ namespace key_managment_system.ViewModels
             }
             else
             {
-                ErrorMessage = "Invalid credentials!";
+                if (correctCredentials && foundUser.Role == RoleEnum.Employee)
+
+                {
+                    LoggedInUser = foundUser;
+                    this.IsViewVisible = false;
+                    EmployeeDashboard man = new EmployeeDashboard();
+                    man.Visibility = Visibility.Visible;
+                    var temp = new CardUsing();
+                    
+                }
+                else
+                {
+                    ErrorMessage = "Invalid credentials!";
+                }
+            }
+
+            
+            
+        }
+        private User _loggedInUser;
+
+        public User LoggedInUser
+        {
+            get => _loggedInUser;
+            set
+            {
+                _loggedInUser = value;
+                OnPropertyChanged(nameof(LoggedInUser));
             }
         }
     }

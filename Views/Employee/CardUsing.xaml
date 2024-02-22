@@ -4,9 +4,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:key_managment_system.Views.Employee"
+              xmlns:viewModel="clr-namespace:key_managment_system.ViewModels" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid  Background="Yellow">
-            
+    
+    <UserControl.DataContext>
+        <viewModel:CardUsingViewModel />
+    </UserControl.DataContext>
+
+
+    <Grid Background="WhiteSmoke">
+
+        <Grid.Resources>
+            <!-- Style for DataGridColumnHeader -->
+            <Style TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="Navy"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            </Style>
+
+            <!-- Style for DataGrid -->
+            <Style TargetType="DataGrid">
+                <Setter Property="VerticalGridLinesBrush" Value="White"/>
+                <Setter Property="HorizontalGridLinesBrush" Value="White"/>
+                <Setter Property="AlternatingRowBackground" Value="Navy"/>
+                <Setter Property="RowBackground" Value="#1C30D9"/>
+                <Setter Property="RowHeight" Value="25"/>
+                <Setter Property="RowHeaderWidth" Value="0"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                <Setter Property="ColumnWidth" Value="*"/>
+            </Style>
+        </Grid.Resources>
+
+        <!-- Your UserControl content goes here -->
+        <DataGrid Name="EmployeesList" Margin="10,50,10,10" HorizontalContentAlignment="Center"/>
+
+
     </Grid>
 </UserControl>
