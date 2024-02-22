@@ -58,6 +58,11 @@
                         <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CenterTextBlockStyle}"/>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CenterTextBlockStyle}"/>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="RFID" Binding="{Binding Rfid}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CenterTextBlockStyle}"/>
