@@ -25,7 +25,7 @@
          HorizontalAlignment="Center"
          VerticalAlignment="Center">
 
-            <Image Source="/Images/add-user-logo.png"
+            <Image Source="/Images/information.png"
         Width="220" Height="100"/>
 
             <TextBlock Text=""
@@ -35,7 +35,7 @@
             FontFamily="Montserrat"
             HorizontalAlignment="Center"/>
 
-            <TextBlock Text="Add new user"
+            <TextBlock Text="Your profile information"
             
             Foreground="Black"
             FontSize="15"
@@ -158,7 +158,7 @@
 
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="#004f7c"/>
+                        <Setter Property="Background" Value="Navy"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="Black"/>
