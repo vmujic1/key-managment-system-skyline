@@ -23,6 +23,10 @@ namespace key_managment_system.ViewModels
         public int UserId { get; set; }
         public int KeycardId { get; set; }
         public int Role { get; set; }
+        public string Username { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
 
         private UserManager() { }
     }

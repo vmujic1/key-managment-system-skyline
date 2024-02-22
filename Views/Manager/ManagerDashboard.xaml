@@ -110,12 +110,14 @@
                         </StackPanel>
 
                     </RadioButton>
+                    <StackPanel Margin=" 0 150 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Source="../../Images/user-icon.png" Height="40"></Image>
+                        <TextBlock Text="{Binding CurrentUser}" FontSize="18" HorizontalAlignment="Center" Foreground="White" Margin="7 10 0 0"/>
+                        
+                    </StackPanel>
+
                 </StackPanel>
-                
-                
-                
-                
-                
+
                 
             </Border>
 
@@ -147,7 +149,7 @@
                             VerticalAlignment="Top">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#004f7c"/>
+                                <Setter Property="Background" Value="Navy"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Black"/>
@@ -182,7 +184,7 @@
                                 VerticalAlignment="Top">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#004f7c"/>
+                                <Setter Property="Background" Value="Navy"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Black"/>
@@ -226,7 +228,7 @@
                         VerticalAlignment="Top">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#004f7c"/>
+                                <Setter Property="Background" Value="Navy"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Black"/>

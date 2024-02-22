@@ -13,10 +13,17 @@ namespace key_managment_system.ViewModels
     public class ManagerDashboardViewModel : ViewModelBase
     {
         private ViewModelBase _currentChildView;
-        
+
+        public string _currentUser;
+
+        public string CurrentUser
+        { get => _currentUser; set { _currentUser = value; OnPropertyChanged(nameof(CurrentUser)); } }
+
 
         public ManagerDashboardViewModel()
         {
+            CurrentUser = UserManager.Instance.FirstName + " " + UserManager.Instance.LastName;
+
             ShowVisualisationCommand = new ViewModelCommand(ExecuteVisualisationCommand);
             ShowReportsCommand = new ViewModelCommand(ExecuteReportsCommand);
             ShowDetailedReportsCommand = new ViewModelCommand(ExecuteDetailedReportsCommand);

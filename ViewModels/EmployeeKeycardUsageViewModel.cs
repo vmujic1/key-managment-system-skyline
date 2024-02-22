@@ -17,6 +17,7 @@ namespace key_managment_system.ViewModels
                         join k in context.Keycards on r.SerialNumber equals k.SerialNumber
                         join u in context.Users on k.Id equals u.Keycard.Id
                         join room in context.Rooms on r.Room.Id equals room.Id
+                        where u.Id == UserManager.Instance.UserId
                         select new
                         {
                             FirstName = u.FirstName,

@@ -58,6 +58,20 @@
                         </StackPanel>
 
                     </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding LogoutUserCommand}"
+                                 Click="btnClose_Click">
+                                            <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource menuButtonText}" Text="Log Out"></TextBlock>
+                        </StackPanel>
+
+                    </RadioButton>
+
+                    <StackPanel Margin=" 0 150 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Source="../../Images/user-icon.png" Height="40"></Image>
+                        <TextBlock Text="{Binding CurrentUser}" FontSize="18" HorizontalAlignment="Center" Foreground="White" Margin="7 10 0 0"/>
+
+                    </StackPanel>
                 </StackPanel>
             </Border>
             <Border CornerRadius="0,10,10,0" Grid.Column="1" Background="WhiteSmoke" BorderThickness="1" BorderBrush="WhiteSmoke">
@@ -86,7 +100,7 @@
                             VerticalAlignment="Top">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#004f7c"/>
+                                <Setter Property="Background" Value="Navy"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Black"/>
@@ -121,7 +135,7 @@
             VerticalAlignment="Top">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#004f7c"/>
+                                <Setter Property="Background" Value="Navy"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Black"/>
@@ -134,11 +148,11 @@
                             <ControlTemplate TargetType="Button">
                                 <Grid>
                                     <Border Width="18"
-    Height="18"
-    CornerRadius="9"
-    Background="{TemplateBinding Background}">
+                                        Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
                                         <ContentPresenter VerticalAlignment="Center"
-                  HorizontalAlignment="Center"/>
+                                             HorizontalAlignment="Center"/>
                                     </Border>
                                     <!-- Square shape with border only -->
                                     <Rectangle Width="7" Height="7" Stroke="White" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -153,15 +167,15 @@
                             Content="X"
                             Foreground="White"
                             FontSize="16"
-        FontFamily="Montserrat"
-        Cursor="Hand"
-        Grid.Column="3"
-        Click="btnClose_Click"
-        Height="25"
-        VerticalAlignment="Top">
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="3"
+                            Click="btnClose_Click"
+                            Height="25"
+                            VerticalAlignment="Top">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#004f7c"/>
+                                <Setter Property="Background" Value="Navy"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Background" Value="Black"/>

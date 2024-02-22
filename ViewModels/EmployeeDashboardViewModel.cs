@@ -1,4 +1,5 @@
 ﻿using key_managment_system.ViewModels;
+using key_managment_system.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,17 @@ namespace key_managment_system.ViewModels
     {
         private ViewModelBase _currentChildView;
 
+        public string _currentUser;
+
+        public string CurrentUser
+        { get => _currentUser; set { _currentUser = value; OnPropertyChanged(nameof(CurrentUser)); } }
+
 
         public EmployeeDashboardViewModel()
         {
+            CurrentUser = UserManager.Instance.FirstName + " " + UserManager.Instance.LastName;
             KeycardUsageReportCommand = new ViewModelCommand(ExecuteKeycardUsageReportCommand);
+            LogoutUserCommand = new ViewModelCommand(ExecuteLogoutUserCommand);
             ExecuteVisualisationCommand(null);
         }
 
@@ -30,6 +38,12 @@ namespace key_managment_system.ViewModels
 
         }
 
+        private void ExecuteLogoutUserCommand(object obj)
+        {
+            var newWindow = new LoginView();
+            newWindow.Show();
+        }
+
         public ViewModelBase CurrentChildView
         {
             get => _currentChildView;
@@ -41,6 +55,7 @@ namespace key_managment_system.ViewModels
         }
 
         public ICommand KeycardUsageReportCommand { get; }
+        public ICommand LogoutUserCommand { get; }
 
     }
 }

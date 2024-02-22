@@ -110,7 +110,7 @@ namespace key_managment_system.ViewModels
             if (foundUser != null)
             {
                 correctCredentials = true;
-                SetLoggedInUser(foundUser.Id, foundUser.KeycardId, ((int)foundUser.Role));
+                SetLoggedInUser(foundUser.Id, foundUser.KeycardId, ((int)foundUser.Role),foundUser.Username, foundUser.FirstName, foundUser.LastName);
             }
 
             if (correctCredentials)
@@ -134,11 +134,15 @@ namespace key_managment_system.ViewModels
                 ErrorMessage = "Invalid credentials!";
             }
         }
-        public void SetLoggedInUser(int userId, int keycardId, int role)
+        public void SetLoggedInUser(int userId, int keycardId, int role, string username, string fname, string lname)
         {
             UserManager.Instance.UserId = userId;
             UserManager.Instance.KeycardId = keycardId;
             UserManager.Instance.Role = role;
+            UserManager.Instance.Username = username;
+            UserManager.Instance.FirstName = fname;
+            UserManager.Instance.LastName = lname;
+
         }
     }
 }
