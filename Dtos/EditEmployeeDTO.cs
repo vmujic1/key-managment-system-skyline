@@ -14,6 +14,7 @@ namespace key_managment_system.NewFolder
             Id = user.Id;
             FirstName = user.FirstName;
             LastName = user.LastName;
+            Email = user.Email;
             Rfid = user.Keycard.SerialNumber;
         }
 
@@ -21,6 +22,8 @@ namespace key_managment_system.NewFolder
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public string Email { get; set; }
 
         public string Rfid { get; set; }
 
