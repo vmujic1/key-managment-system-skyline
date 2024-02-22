@@ -34,5 +34,10 @@ namespace key_managment_system.Views.Manager
         {
 
         }
+
+        private void ApproveRequest(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
