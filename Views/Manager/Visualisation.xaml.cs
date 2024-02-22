@@ -2,6 +2,7 @@
 using key_managment_system.Models;
 using key_managment_system.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -45,7 +46,18 @@ namespace key_managment_system.Views.Manager
         }
 
 
+        public async void AddRecord(string keycardId, int roomId)
+        {
+            Context context = new Context();
+            context.Records.Add(new Record
+            {
+                SerialNumber = keycardId,
+                TimeStamp = DateTime.Now,
+                RoomId = roomId
+            });
 
+            await context.SaveChangesAsync();
+        }
 
         public async void UpdateUserDatabase()
         {
@@ -124,8 +136,6 @@ namespace key_managment_system.Views.Manager
         {
             UpdateUserDatabase();
             UpdateRoomColor();
-
-            
             
             Qr1Btn.Visibility = Visibility.Hidden;
             Qr2Btn.Visibility = Visibility.Hidden;
@@ -138,7 +148,7 @@ namespace key_managment_system.Views.Manager
             StrBtn.Visibility = Visibility.Hidden;
             ToBtn.Visibility = Visibility.Hidden;
             WsBtn.Visibility = Visibility.Hidden;
-            
+
             if (UserManager.Instance.CurrentRoomId == 1)
             {
                 Cr1Btn.Visibility= Visibility.Visible;
@@ -325,14 +335,17 @@ namespace key_managment_system.Views.Manager
             }
         }
 
+        
+
         public Visualisation()
         {
-           
+
             
             InitializeComponent();
+
+            
             UpdateDoors();
 
-                
 
 
         }
@@ -410,10 +423,12 @@ namespace key_managment_system.Views.Manager
         {
             if(UserManager.Instance.CurrentRoomId == 9)
             {
+                AddRecord(UserManager.Instance.SerialNumber, 12);
                 UserManager.Instance.CurrentRoomId = 12;
             }
             else
             {
+                AddRecord(UserManager.Instance.SerialNumber, 9);
                 UserManager.Instance.CurrentRoomId = 9;
             }
             
@@ -426,10 +441,12 @@ namespace key_managment_system.Views.Manager
 
             if (UserManager.Instance.CurrentRoomId == 5)
             {
+                AddRecord(UserManager.Instance.SerialNumber, 12);
                 UserManager.Instance.CurrentRoomId = 12;
             }
             else
             {
+                AddRecord(UserManager.Instance.SerialNumber, 5);
                 UserManager.Instance.CurrentRoomId = 5;
             }
             
@@ -441,10 +458,12 @@ namespace key_managment_system.Views.Manager
         {
             if (UserManager.Instance.CurrentRoomId == 4)
             {
+                AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
             {
+                AddRecord(UserManager.Instance.SerialNumber, 4);
                 UserManager.Instance.CurrentRoomId = 4;
             }
             
@@ -455,10 +474,11 @@ namespace key_managment_system.Views.Manager
         {
             if (UserManager.Instance.CurrentRoomId == 3)
             {
+                AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 3);
                 UserManager.Instance.CurrentRoomId = 3;
             }
            
@@ -468,11 +488,11 @@ namespace key_managment_system.Views.Manager
         public void Cr2BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 2)
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 2);
                 UserManager.Instance.CurrentRoomId = 2;
             }
             
@@ -482,10 +502,12 @@ namespace key_managment_system.Views.Manager
         {
             if (UserManager.Instance.CurrentRoomId == 1)
             {
+                AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
             {
+                AddRecord(UserManager.Instance.SerialNumber, 1);
                 UserManager.Instance.CurrentRoomId = 1;
             }
             
@@ -496,10 +518,13 @@ namespace key_managment_system.Views.Manager
         {
             if (UserManager.Instance.CurrentRoomId == 6)
             {
+                AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
             {
+                AddRecord(UserManager.Instance.SerialNumber, 6);
+
                 UserManager.Instance.CurrentRoomId = 6;
             }
             
@@ -509,11 +534,11 @@ namespace key_managment_system.Views.Manager
         private void Of1BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 7)
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 7);
                 UserManager.Instance.CurrentRoomId = 7;
             }
             
@@ -524,11 +549,11 @@ namespace key_managment_system.Views.Manager
         private void Of2BtnDown(object sender, RoutedEventArgs e)
         {
             if (UserManager.Instance.CurrentRoomId == 8)
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 8);
                 UserManager.Instance.CurrentRoomId = 8;
             }
             
@@ -544,10 +569,11 @@ namespace key_managment_system.Views.Manager
         {
             if (UserManager.Instance.CurrentRoomId == 10)
             {
+                AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 10);
                 UserManager.Instance.CurrentRoomId = 10;
             }
             
@@ -558,10 +584,11 @@ namespace key_managment_system.Views.Manager
         {
             if (UserManager.Instance.CurrentRoomId == 12)
             {
+                AddRecord(UserManager.Instance.SerialNumber, 11);
                 UserManager.Instance.CurrentRoomId = 11;
             }
             else
-            {
+            {AddRecord(UserManager.Instance.SerialNumber, 12);
                 UserManager.Instance.CurrentRoomId = 12;
             }
             
