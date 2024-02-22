@@ -16,7 +16,13 @@ namespace key_managment_system.ViewModels
         public EmployeeDashboardViewModel()
         {
             KeycardUsageReportCommand = new ViewModelCommand(ExecuteKeycardUsageReportCommand);
+            ShowProfileCommand = new ViewModelCommand(ExecuteShowProfileCommand);
             ExecuteVisualisationCommand(null);
+        }
+
+        private void ExecuteShowProfileCommand(object obj)
+        {
+            CurrentChildView = new ShowProfileViewModel();
         }
 
         private void ExecuteKeycardUsageReportCommand(object obj)
@@ -41,6 +47,7 @@ namespace key_managment_system.ViewModels
         }
 
         public ICommand KeycardUsageReportCommand { get; }
+        public ICommand ShowProfileCommand { get; }
 
     }
 }
