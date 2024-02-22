@@ -194,9 +194,9 @@ namespace key_managment_system.Views.Manager
 
         public Visualisation()
         {
-            
-            
-            
+
+
+            UserManager.Instance.CurrentRoomId = 11;
             InitializeComponent();
             UpdateDoors();
 

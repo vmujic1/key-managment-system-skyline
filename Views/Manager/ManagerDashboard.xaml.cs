@@ -35,6 +35,7 @@ namespace key_managment_system.Views.Manager
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnAdjustWindowSize_Click(object sender, RoutedEventArgs e)
