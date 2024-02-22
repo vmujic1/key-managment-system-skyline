@@ -1,4 +1,6 @@
-﻿using System;
+﻿using key_managment_system.DBContexts;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,9 +37,18 @@ namespace key_managment_system.Views.Manager
 
         }
 
-        private void ApproveRequest(object sender, RoutedEventArgs e)
+        private async void ApproveRequest(object sender, RoutedEventArgs e)
         {
+            int Id = (int)((Button)sender).CommandParameter;
+            Context c = new Context();
+            var req = await c.KeycardRequests.FirstOrDefaultAsync(k => k.Id == Id);
+            RequestNewKeycard edit = new RequestNewKeycard(req.KeycardId);
+            bool? dialogResult = edit.ShowDialog();
+            DataGrid.ItemsSource = await c.KeycardRequests.ToListAsync();g
+            await Task.Delay(500);
 
+
+            
         }
     }
 }
