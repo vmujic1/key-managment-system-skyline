@@ -27,6 +27,7 @@ namespace key_managment_system.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int  CurrentRoomId { get; set; }
+        public string SerialNumber { get; set; }
 
 
         private UserManager() { }

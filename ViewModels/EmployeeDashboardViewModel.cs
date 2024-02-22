@@ -24,7 +24,13 @@ namespace key_managment_system.ViewModels
             CurrentUser = UserManager.Instance.FirstName + " " + UserManager.Instance.LastName;
             KeycardUsageReportCommand = new ViewModelCommand(ExecuteKeycardUsageReportCommand);
             LogoutUserCommand = new ViewModelCommand(ExecuteLogoutUserCommand);
+            ShowProfileViewCommand=  new ViewModelCommand(ExecuteShowProfileCommand);
             ExecuteVisualisationCommand(null);
+        }
+
+        private void ExecuteShowProfileCommand(object obj)
+        {
+            CurrentChildView = new ShowProfileViewModel();
         }
 
         private void ExecuteKeycardUsageReportCommand(object obj)
@@ -56,6 +62,8 @@ namespace key_managment_system.ViewModels
 
         public ICommand KeycardUsageReportCommand { get; }
         public ICommand LogoutUserCommand { get; }
+        public ICommand ShowProfileViewCommand { get; }
+
 
     }
 }

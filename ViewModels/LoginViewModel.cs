@@ -94,13 +94,14 @@ namespace key_managment_system.ViewModels
         private async void ExecuteLoginCommand(object obj)
         {
             var context = new Context();
-            var foundUser = await context.Users.FirstOrDefaultAsync(user => user.Username == Username); 
+            var foundUser = await context.Users.FirstOrDefaultAsync(user => user.Username == Username);
+            var foundCard = await context.Keycards.FirstOrDefaultAsync(card => card.Id == foundUser.KeycardId);
             bool correctCredentials = false;
 
             if (foundUser != null && BCrypt.Net.BCrypt.EnhancedVerify(Password, foundUser.Password))
             {
                 correctCredentials = true;
-                SetLoggedInUser(foundUser.Id, foundUser.KeycardId, ((int)foundUser.Role),foundUser.Username, foundUser.FirstName, foundUser.LastName);
+                SetLoggedInUser(foundUser.Id, foundUser.KeycardId, ((int)foundUser.Role),foundUser.Username, foundUser.FirstName, foundUser.LastName, foundUser.CurrentRoomId, foundCard.SerialNumber);
             }
 
             if (correctCredentials)
@@ -124,7 +125,7 @@ namespace key_managment_system.ViewModels
                 ErrorMessage = "Invalid credentials!";
             }
         }
-        public void SetLoggedInUser(int userId, int keycardId, int role, string username, string fname, string lname)
+        public void SetLoggedInUser(int userId, int keycardId, int role, string username, string fname, string lname, int cRoom,string sNumber)
         {
             UserManager.Instance.UserId = userId;
             UserManager.Instance.KeycardId = keycardId;
@@ -132,6 +133,8 @@ namespace key_managment_system.ViewModels
             UserManager.Instance.Username = username;
             UserManager.Instance.FirstName = fname;
             UserManager.Instance.LastName = lname;
+            UserManager.Instance.CurrentRoomId = cRoom;
+            UserManager.Instance.SerialNumber = sNumber;
 
         }
     }

@@ -25,6 +25,7 @@ namespace key_managment_system.DBContexts
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Record> Records { get; set; }
         public DbSet<Keycard> Keycards { get; set; }
+        public DbSet<KeycardRequest> KeycardRequests { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
