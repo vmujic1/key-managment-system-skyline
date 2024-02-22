@@ -2,9 +2,11 @@
 using key_managment_system.Models;
 using key_managment_system.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,7 +28,24 @@ namespace key_managment_system.Views.Manager
     {
 
         
-        
+        public bool? Permission {  get; set; }
+
+
+        public async void CheckUserPermission(int roomId, int userId)
+        {
+             Context context = new Context();
+                   Permission = context.Users
+                .Join(context.Keycards, u => u.KeycardId, k => k.Id, (u, k) => new { User = u, Keycard = k })
+                .Where(uk => uk.User.Id == userId)
+                .Join(context.Rooms, uk => 1, r => 1, (uk, r) => new { uk.User, uk.Keycard, Room = r })
+                .Where(ukr => ukr.Room.Id == roomId)
+                .Select(ukr => ukr.Keycard.AccessLevel >= ukr.Room.AccessLevel)
+                .FirstOrDefault();
+
+        }
+
+
+
 
         public async void UpdateUserDatabase()
         {
@@ -106,7 +125,7 @@ namespace key_managment_system.Views.Manager
             UpdateUserDatabase();
             UpdateRoomColor();
 
-            await Task.Delay(500);
+            
             
             Qr1Btn.Visibility = Visibility.Hidden;
             Qr2Btn.Visibility = Visibility.Hidden;
@@ -172,34 +191,148 @@ namespace key_managment_system.Views.Manager
             }
             else if(UserManager.Instance.CurrentRoomId == 11)
             {
-                WsBtn.Visibility = Visibility.Visible;
-                ToBtn.Visibility = Visibility.Visible;
-                Of2Btn.Visibility = Visibility.Visible;
-                Of1Btn.Visibility = Visibility.Visible;
-                StaBtn.Visibility = Visibility.Visible;
-                Qr2Btn.Visibility = Visibility.Visible;
-                Qr1Btn.Visibility = Visibility.Visible;
-                Cr1Btn.Visibility = Visibility.Visible;
-                Cr2Btn.Visibility = Visibility.Visible;
+                CheckUserPermission(12, UserManager.Instance.UserId);
+                if ((bool)Permission)
+                {
+                    WsBtn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    WsBtn.Visibility = Visibility.Hidden;
+                }
+
+                CheckUserPermission(7, UserManager.Instance.UserId);
+                
+                if ((bool)Permission)
+                {
+                    Of1Btn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Of1Btn.Visibility = Visibility.Hidden;
+                }
+
+                CheckUserPermission(8, UserManager.Instance.UserId);
+                
+                if ((bool)Permission)
+                {
+                    Of2Btn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Of2Btn.Visibility = Visibility.Hidden;
+                }
+
+                CheckUserPermission(10, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    ToBtn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    ToBtn.Visibility = Visibility.Hidden;
+                }
+                CheckUserPermission(6, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    StaBtn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    StaBtn.Visibility = Visibility.Hidden;
+                }
+
+                CheckUserPermission(4, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    Qr2Btn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Qr2Btn.Visibility = Visibility.Hidden;
+                }
+                CheckUserPermission(3, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    Qr1Btn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Qr1Btn.Visibility = Visibility.Hidden;
+                }
+
+                CheckUserPermission(2, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    Cr2Btn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Cr2Btn.Visibility = Visibility.Hidden;
+                }
+                CheckUserPermission(1, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    Cr1Btn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Cr1Btn.Visibility = Visibility.Hidden;
+                }
+                
                 return;
             }
             else if (UserManager.Instance.CurrentRoomId == 12)
             {
-                Qr3Btn.Visibility= Visibility.Visible;
-                StrBtn.Visibility= Visibility.Visible;
-                WsBtn.Visibility = Visibility.Visible;
+                CheckUserPermission(5, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    Qr3Btn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    Qr3Btn.Visibility = Visibility.Hidden;
+                }
+                CheckUserPermission(9, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    StrBtn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    StrBtn.Visibility = Visibility.Hidden;
+                }
+                CheckUserPermission(11, UserManager.Instance.UserId);
+
+                if ((bool)Permission)
+                {
+                    WsBtn.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    WsBtn.Visibility = Visibility.Hidden;
+                }
+                
                 return;
             }
         }
 
         public Visualisation()
         {
-
-
-            UserManager.Instance.CurrentRoomId = 11;
+           
+            
             InitializeComponent();
             UpdateDoors();
 
+                
 
 
         }
@@ -402,6 +535,9 @@ namespace key_managment_system.Views.Manager
             UpdateDoors();
 
             
+           
+
+
         }
 
         public void ToBtnDown(object sender, RoutedEventArgs e)
