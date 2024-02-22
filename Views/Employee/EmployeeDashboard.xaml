@@ -60,7 +60,7 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Command="{Binding LogoutUserCommand}"
-                                 Click="btnClose_Click">
+                                 Click="btnLogout_Click">
                                             <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource menuButtonText}" Text="Log Out"></TextBlock>
                         </StackPanel>
