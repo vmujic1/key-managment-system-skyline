@@ -28,6 +28,9 @@
         <DataTemplate DataType="{x:Type viewModel:EmployeeKeycardUsageViewModel}">
         <local:EmployeeKeycardUsage/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ShowProfileViewModel}">
+            <local:Profile/>
+        </DataTemplate>
     </Window.Resources>
     
      <Border CornerRadius="10" BorderThickness="1"  BorderBrush="WhiteSmoke">
@@ -58,20 +61,14 @@
                         </StackPanel>
 
                     </RadioButton>
+
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Command="{Binding LogoutUserCommand}"
-                                 Click="btnLogout_Click">
-                                            <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource menuButtonText}" Text="Log Out"></TextBlock>
-                        </StackPanel>
+                            Command="{Binding ShowProfileCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource menuButtonText}" Text="Profile"></TextBlock>
+                    </StackPanel>
 
                     </RadioButton>
-
-                    <StackPanel Margin=" 0 150 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Image Source="../../Images/user-icon.png" Height="40"></Image>
-                        <TextBlock Text="{Binding CurrentUser}" FontSize="18" HorizontalAlignment="Center" Foreground="White" Margin="7 10 0 0"/>
-
-                    </StackPanel>
                 </StackPanel>
             </Border>
             <Border CornerRadius="0,10,10,0" Grid.Column="1" Background="WhiteSmoke" BorderThickness="1" BorderBrush="WhiteSmoke">

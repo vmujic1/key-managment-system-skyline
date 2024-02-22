@@ -27,6 +27,11 @@ namespace key_managment_system.ViewModels
             ExecuteVisualisationCommand(null);
         }
 
+        private void ExecuteShowProfileCommand(object obj)
+        {
+            CurrentChildView = new ShowProfileViewModel();
+        }
+
         private void ExecuteKeycardUsageReportCommand(object obj)
         {
             CurrentChildView = new EmployeeKeycardUsageViewModel();

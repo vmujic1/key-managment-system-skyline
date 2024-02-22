@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using key_managment_system.DBContexts;
 
@@ -10,9 +11,11 @@ using key_managment_system.DBContexts;
 namespace key_managment_system.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContexModelSnapshot : ModelSnapshot
+    [Migration("20240221232444_KeycardRequest")]
+    partial class KeycardRequest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,40 +38,6 @@ namespace key_managment_system.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Keycards");
-                });
-
-            modelBuilder.Entity("key_managment_system.Models.KeycardRequest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("KeycardId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("ReceiverId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SenderId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("KeycardId");
-
-                    b.HasIndex("ReceiverId");
-
-                    b.HasIndex("SenderId");
-
-                    b.ToTable("KeycardRequests");
                 });
 
             modelBuilder.Entity("key_managment_system.Models.Record", b =>
@@ -150,33 +119,6 @@ namespace key_managment_system.Migrations
                     b.HasIndex("KeycardId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("key_managment_system.Models.KeycardRequest", b =>
-                {
-                    b.HasOne("key_managment_system.Models.Keycard", "Keycard")
-                        .WithMany()
-                        .HasForeignKey("KeycardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("key_managment_system.Models.User", "Receiver")
-                        .WithMany()
-                        .HasForeignKey("ReceiverId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("key_managment_system.Models.User", "Sender")
-                        .WithMany()
-                        .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Keycard");
-
-                    b.Navigation("Receiver");
-
-                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("key_managment_system.Models.Record", b =>
