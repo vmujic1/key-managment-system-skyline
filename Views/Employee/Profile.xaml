@@ -77,7 +77,7 @@
           Padding="5 0 0 0">
             </TextBox>
 
-            <TextBlock  Text="LastName"
+            <TextBlock  Text="Last name"
                     Foreground="Black"
                     FontSize="12"
                     FontWeight="Medium"
@@ -99,27 +99,7 @@
               Padding="5 0 0 0">
             </TextBox>
 
-            <TextBlock  Text="Email"
-        Foreground="Black"
-        FontSize="12"
-        FontWeight="Medium"
-        FontFamily="Montserrat"                             
-        Margin="0,30,0,0"/>
-
-            <TextBox x:Name="txtEmail"
-              Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
-              FontSize="13"
-              FontWeight="Medium"
-              FontFamily="Montserrat"                            
-              Foreground="Black"
-              CaretBrush="LightGray"
-              BorderBrush="DarkGray"
-              BorderThickness="0,0,0,2"
-              Height="28"
-              VerticalContentAlignment="Center"
-              Margin="0 5 0 0"
-              Padding="5 0 0 0">
-            </TextBox>
+            
 
             <TextBlock  Text="Keycard ID"
                     Foreground="Black"
@@ -169,8 +149,8 @@
 
 
             <Button 
-            Content="Add"
-            Command="{Binding AddUserCommand}"
+            Content="Request new keycard"
+            Command="{Binding RequestKeycardCommand}"
             Foreground="White"
             FontSize="12"
             Cursor="Hand"                           

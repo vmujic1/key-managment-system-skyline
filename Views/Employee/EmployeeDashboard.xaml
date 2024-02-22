@@ -63,7 +63,7 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
-                            Command="{Binding ShowProfileCommand}">
+                            Command="{Binding ShowProfileViewCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource menuButtonText}" Text="Profile"></TextBlock>
                     </StackPanel>
