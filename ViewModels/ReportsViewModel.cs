@@ -1,5 +1,6 @@
 ﻿using key_managment_system.DBContexts;
 using key_managment_system.Dtos;
+using key_managment_system.Models;
 using key_managment_system.NewFolder;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -140,12 +141,7 @@ namespace key_managment_system.ViewModels
                         join k in context.Keycards on r.SerialNumber equals k.SerialNumber
                         join u in context.Users on k.Id equals u.Keycard.Id
                         join room in context.Rooms on r.Room.Id equals room.Id
-                        where u.FirstName == ime || 
-                        u.LastName == ime || 
-                        u.Email == ime || 
-                        u.Username == ime ||
-                        room.Name == ime ||
-                        k.SerialNumber == ime 
+                        where u.FirstName.Contains(ime)
                         select new
                         {
                             FirstName = u.FirstName,
@@ -165,6 +161,229 @@ namespace key_managment_system.ViewModels
 
             return users;
         }
+
+        public async Task<List<ReportsDTO>> GetRecordsFromDatabaseAsync_LN(string ime)
+        {
+
+            Context context = new Context();
+            var query = from r in context.Records
+                        join k in context.Keycards on r.SerialNumber equals k.SerialNumber
+                        join u in context.Users on k.Id equals u.Keycard.Id
+                        join room in context.Rooms on r.Room.Id equals room.Id
+                        where u.LastName.Contains(ime)
+                        select new
+                        {
+                            FirstName = u.FirstName,
+                            LastName = u.LastName,
+                            Email = u.Email,
+                            Username = u.Username,
+                            RoomName = room.Name,
+                            SerialNumber = k.SerialNumber,
+                            AccessLevel = k.AccessLevel,
+                            TimeStamp = r.TimeStamp,
+                        };
+
+            // Store the result of the query in a list
+            var records = await query.ToListAsync();
+            var users = records.Select(x => new ReportsDTO
+            { FirstName = x.FirstName, LastName = x.LastName, Email = x.Email, Username = x.Username, RoomName = x.RoomName, SerialNumber = x.SerialNumber, AccessLevel = x.AccessLevel, Timestamp = x.TimeStamp }).ToList();
+
+            return users;
+        }
+
+        public async Task<List<ReportsDTO>> GetRecordsFromDatabaseAsync_EMAIL(string ime)
+        {
+
+            Context context = new Context();
+            var query = from r in context.Records
+                        join k in context.Keycards on r.SerialNumber equals k.SerialNumber
+                        join u in context.Users on k.Id equals u.Keycard.Id
+                        join room in context.Rooms on r.Room.Id equals room.Id
+                        where u.Email.Contains(ime)
+                        select new
+                        {
+                            FirstName = u.FirstName,
+                            LastName = u.LastName,
+                            Email = u.Email,
+                            Username = u.Username,
+                            RoomName = room.Name,
+                            SerialNumber = k.SerialNumber,
+                            AccessLevel = k.AccessLevel,
+                            TimeStamp = r.TimeStamp,
+                        };
+
+            // Store the result of the query in a list
+            var records = await query.ToListAsync();
+            var users = records.Select(x => new ReportsDTO
+            { FirstName = x.FirstName, LastName = x.LastName, Email = x.Email, Username = x.Username, RoomName = x.RoomName, SerialNumber = x.SerialNumber, AccessLevel = x.AccessLevel, Timestamp = x.TimeStamp }).ToList();
+
+            return users;
+        }
+
+        public async Task<List<ReportsDTO>> GetRecordsFromDatabaseAsync_USERNAME(string ime)
+        {
+
+            Context context = new Context();
+            var query = from r in context.Records
+                        join k in context.Keycards on r.SerialNumber equals k.SerialNumber
+                        join u in context.Users on k.Id equals u.Keycard.Id
+                        join room in context.Rooms on r.Room.Id equals room.Id
+                        where u.Username.Contains(ime)
+                        select new
+                        {
+                            FirstName = u.FirstName,
+                            LastName = u.LastName,
+                            Email = u.Email,
+                            Username = u.Username,
+                            RoomName = room.Name,
+                            SerialNumber = k.SerialNumber,
+                            AccessLevel = k.AccessLevel,
+                            TimeStamp = r.TimeStamp,
+                        };
+
+            // Store the result of the query in a list
+            var records = await query.ToListAsync();
+            var users = records.Select(x => new ReportsDTO
+            { FirstName = x.FirstName, LastName = x.LastName, Email = x.Email, Username = x.Username, RoomName = x.RoomName, SerialNumber = x.SerialNumber, AccessLevel = x.AccessLevel, Timestamp = x.TimeStamp }).ToList();
+
+            return users;
+        }
+
+        public async Task<List<ReportsDTO>> GetRecordsFromDatabaseAsync_RN(string ime)
+        {
+
+            Context context = new Context();
+            var query = from r in context.Records
+                        join k in context.Keycards on r.SerialNumber equals k.SerialNumber
+                        join u in context.Users on k.Id equals u.Keycard.Id
+                        join room in context.Rooms on r.Room.Id equals room.Id
+                        where room.Name.Contains(ime)
+                        select new
+                        {
+                            FirstName = u.FirstName,
+                            LastName = u.LastName,
+                            Email = u.Email,
+                            Username = u.Username,
+                            RoomName = room.Name,
+                            SerialNumber = k.SerialNumber,
+                            AccessLevel = k.AccessLevel,
+                            TimeStamp = r.TimeStamp,
+                        };
+
+            // Store the result of the query in a list
+            var records = await query.ToListAsync();
+            var users = records.Select(x => new ReportsDTO
+            { FirstName = x.FirstName, LastName = x.LastName, Email = x.Email, Username = x.Username, RoomName = x.RoomName, SerialNumber = x.SerialNumber, AccessLevel = x.AccessLevel, Timestamp = x.TimeStamp }).ToList();
+
+            return users;
+        }
+
+
+        public async Task<List<ReportsDTO>> GetRecordsFromDatabaseAsync_SN(string ime)
+        {
+
+            Context context = new Context();
+            var query = from r in context.Records
+                        join k in context.Keycards on r.SerialNumber equals k.SerialNumber
+                        join u in context.Users on k.Id equals u.Keycard.Id
+                        join room in context.Rooms on r.Room.Id equals room.Id
+                        where k.SerialNumber.Contains(ime)
+                        select new
+                        {
+                            FirstName = u.FirstName,
+                            LastName = u.LastName,
+                            Email = u.Email,
+                            Username = u.Username,
+                            RoomName = room.Name,
+                            SerialNumber = k.SerialNumber,
+                            AccessLevel = k.AccessLevel,
+                            TimeStamp = r.TimeStamp,
+                        };
+
+            // Store the result of the query in a list
+            var records = await query.ToListAsync();
+            var users = records.Select(x => new ReportsDTO
+            { FirstName = x.FirstName, LastName = x.LastName, Email = x.Email, Username = x.Username, RoomName = x.RoomName, SerialNumber = x.SerialNumber, AccessLevel = x.AccessLevel, Timestamp = x.TimeStamp }).ToList();
+
+            return users;
+        }
+
+        public async Task<List<ReportsDTO>> GetRecordsFromDatabaseAsync_AL(string ime)
+        {
+            AccessLevelEnum temp = new AccessLevelEnum();
+            if(ime == "Low")
+            {
+                temp = AccessLevelEnum.Low;
+            }
+            else if (ime == "Medium")
+            {
+                temp = AccessLevelEnum.Medium;
+            }
+            if (ime == "High")
+            {
+                temp = AccessLevelEnum.High;
+            }
+            Context context = new Context();
+            var query = from r in context.Records
+                        join k in context.Keycards on r.SerialNumber equals k.SerialNumber
+                        join u in context.Users on k.Id equals u.Keycard.Id
+                        join room in context.Rooms on r.Room.Id equals room.Id
+                        where k.AccessLevel == temp
+                        select new
+                        {
+                            FirstName = u.FirstName,
+                            LastName = u.LastName,
+                            Email = u.Email,
+                            Username = u.Username,
+                            RoomName = room.Name,
+                            SerialNumber = k.SerialNumber,
+                            AccessLevel = k.AccessLevel,
+                            TimeStamp = r.TimeStamp,
+                        };
+
+            // Store the result of the query in a list
+            var records = await query.ToListAsync();
+            var users = records.Select(x => new ReportsDTO
+            { FirstName = x.FirstName, LastName = x.LastName, Email = x.Email, Username = x.Username, RoomName = x.RoomName, SerialNumber = x.SerialNumber, AccessLevel = x.AccessLevel, Timestamp = x.TimeStamp }).ToList();
+
+            return users;
+        }
+
+
+        public async Task<List<ReportsDTO>> GetRecordsFromDatabaseAsync_ALL(string ime)
+        {
+
+            Context context = new Context();
+            var query = from r in context.Records
+                        join k in context.Keycards on r.SerialNumber equals k.SerialNumber
+                        join u in context.Users on k.Id equals u.Keycard.Id
+                        join room in context.Rooms on r.Room.Id equals room.Id
+                        where u.FirstName.Contains(ime) ||
+                        u.LastName.Contains(ime) ||
+                        u.Email.Contains(ime) ||
+                        u.Username.Contains(ime) ||
+                        room.Name.Contains(ime) ||
+                        k.SerialNumber.Contains(ime) 
+                        select new
+                        {
+                            FirstName = u.FirstName,
+                            LastName = u.LastName,
+                            Email = u.Email,
+                            Username = u.Username,
+                            RoomName = room.Name,
+                            SerialNumber = k.SerialNumber,
+                            AccessLevel = k.AccessLevel,
+                            TimeStamp = r.TimeStamp,
+                        };
+
+            // Store the result of the query in a list
+            var records = await query.ToListAsync();
+            var users = records.Select(x => new ReportsDTO
+            { FirstName = x.FirstName, LastName = x.LastName, Email = x.Email, Username = x.Username, RoomName = x.RoomName, SerialNumber = x.SerialNumber, AccessLevel = x.AccessLevel, Timestamp = x.TimeStamp }).ToList();
+
+            return users;
+        }
+
 
     }
 }

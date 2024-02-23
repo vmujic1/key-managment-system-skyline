@@ -45,12 +45,26 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Search by keyword:" Margin="10 24 0 0"></TextBlock>
 
-            <TextBox x:Name="tekst" Height="25" Margin="10 0 0 0" Width="150" Text="{Binding TextFilter, Mode=TwoWay}" />
+            <ComboBox
+                  Width="150"
+                  Height="25"
+                  x:Name="ColumnCombo"
+                  Margin="10 0 0 0"
+                SelectedIndex="0">
+                <ComboBoxItem Content="No filter"/>
+                <ComboBoxItem Content="All columns"/>
+                <ComboBoxItem Content="First Name"/>
+                <ComboBoxItem Content="Last Name"/>
+                <ComboBoxItem Content="Email"/>
+                <ComboBoxItem Content="Username"/>
+                <ComboBoxItem Content="Room Name"/>
+                <ComboBoxItem Content="Serial Number"/>
+                <ComboBoxItem Content="Access Level"/>
+            </ComboBox>
+            <TextBox x:Name="tekst" Height="25" Margin="12 0 0 0" Width="150" Text="{Binding TextFilter, Mode=TwoWay}" />
 
-
-            <Button Command="{Binding FilterCommand}" Click="click_zmirko"  Margin="12 0 0 0" Content="Filter" Height="25" Width="55"></Button>
+            <Button Command="{Binding FilterCommand}" Click="click_zmirko"  Margin="12 0 0 0" Content="Filter" Height="25" Width="55" Background="White" Cursor="Hand"></Button>
             
         </StackPanel>
 

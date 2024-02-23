@@ -49,10 +49,71 @@ namespace key_managment_system.Views.Manager
 
         private async void click_zmirko(object sender, RoutedEventArgs e)
         {
-            
-            await Task.Delay(1000);
-            var temp = await viewModel.GetRecordsFromDatabaseAsync_FN(tekst.Text.ToString());
-            EmployeesList.ItemsSource = temp;
+            //MessageBox.Show(((ComboBoxItem)ColumnCombo.SelectedItem).Content.ToString());
+            string columnCombo = ((ComboBoxItem)ColumnCombo.SelectedItem).Content.ToString();
+
+            if (string.IsNullOrEmpty(tekst.Text.ToString()) && columnCombo != "No filter")
+            {
+                MessageBox.Show("Please enter text for filtering.");
+            } 
+            else
+            {
+                if (columnCombo == "No filter")
+                {
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync();
+                    EmployeesList.ItemsSource = temp;
+                }
+                else if (columnCombo == "First Name")
+                {
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync_FN(tekst.Text.ToString());
+                    EmployeesList.ItemsSource = temp;
+                }
+                else if (columnCombo == "Last Name")
+                {
+                    await Task.Delay(500);
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync_LN(tekst.Text.ToString());
+                    EmployeesList.ItemsSource = temp;
+                }
+                else if (columnCombo == "Email")
+                {
+                    await Task.Delay(500);
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync_EMAIL(tekst.Text.ToString());
+                    EmployeesList.ItemsSource = temp;
+                }
+                else if (columnCombo == "Username")
+                {
+                    await Task.Delay(500);
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync_USERNAME(tekst.Text.ToString());
+                    EmployeesList.ItemsSource = temp;
+                }
+                else if (columnCombo == "Room Name")
+                {
+                    await Task.Delay(500);
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync_RN(tekst.Text.ToString());
+                    EmployeesList.ItemsSource = temp;
+                }
+                else if (columnCombo == "Serial Number")
+                {
+                    await Task.Delay(500);
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync_SN(tekst.Text.ToString());
+                    EmployeesList.ItemsSource = temp;
+                }
+                else if (columnCombo == "Access Level")
+                {
+                    await Task.Delay(500);
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync_AL(tekst.Text.ToString());
+                    EmployeesList.ItemsSource = temp;
+                }
+                else if (columnCombo == "All columns")
+                {
+                    await Task.Delay(500);
+                    var temp = await viewModel.GetRecordsFromDatabaseAsync_ALL(tekst.Text.ToString());
+                    EmployeesList.ItemsSource = temp;
+                }
+            }
+
+           
+
         }
     }
 }

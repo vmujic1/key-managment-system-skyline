@@ -46,9 +46,6 @@ namespace key_managment_system.Views.Manager
             bool? dialogResult = edit.ShowDialog();
             DataGrid.ItemsSource = await c.KeycardRequests.ToListAsync();
             await Task.Delay(500);
-
-
-            
         }
     }
 }

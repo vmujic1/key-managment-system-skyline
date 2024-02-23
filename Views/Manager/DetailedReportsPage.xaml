@@ -38,61 +38,56 @@
          Margin="0,0,0,0"/>
 
             <TextBlock Text="{Binding ErrorMessage}"
-          Foreground="#D7596D"
-          FontSize="12"
-          FontWeight="Medium"
-          FontFamily="Montserrat"                             
-          Margin="0,0,0,0"
-          TextWrapping="Wrap"
-          />
+              Foreground="#D7596D"
+              FontSize="12"
+              FontWeight="Medium"
+              FontFamily="Montserrat"                             
+              Margin="0,0,0,0"
+              TextWrapping="Wrap"
+             />
 
-
-            <TextBlock Text="First name"
-         Foreground="Black"
-         FontSize="12"
-         FontWeight="Medium"
-         FontFamily="Montserrat"                             
-         Margin="0,15,0,0"
-           />
-
-            <TextBox x:Name="txtFirstName"
-                       Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
-                       FontSize="13"
-                       FontWeight="Medium"
-                       FontFamily="Montserrat"                            
-                       Foreground="Black"
-                       CaretBrush="LightGray"
-                       BorderBrush="DarkGray"
-                       BorderThickness="0,0,0,2"
-                       Height="28"
-                       VerticalContentAlignment="Center"
-                       Margin="0 5 0 0"
-                       Padding="5 0 0 0"
-                       IsReadOnly="True">
-            </TextBox>
-
-            <TextBlock  Text="Last name"
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="First name:"
                  Foreground="Black"
                  FontSize="12"
                  FontWeight="Medium"
                  FontFamily="Montserrat"                             
-                 Margin="0,30,0,0"/>
+                 Margin="0,15,0,0"
+                />
 
-            <TextBox x:Name="txtLastName"
+                <TextBlock x:Name="txtFirstName"
+                   Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
+                   FontSize="13"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"                            
+                   Foreground="Black"
+                   Height="28"
+                   Margin="5,14,0,0"
+                   Padding="5 0 0 0">
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                   <TextBlock Text="Last name:"
+                     Foreground="Black"
+                     FontSize="12"
+                     FontWeight="Medium"
+                     FontFamily="Montserrat"                             
+                     Margin="0,30,0,0"/>
+
+                <TextBlock x:Name="txtLastName"
                    Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
                    FontSize="13"
                    FontWeight="Medium"
                    FontFamily="Montserrat"                            
                    Foreground="Black"
-                   CaretBrush="LightGray"
-                   BorderBrush="DarkGray"
-                   BorderThickness="0,0,0,2"
                    Height="28"
-                   VerticalContentAlignment="Center"
-                   Margin="0 5 0 0"
-                   Padding="5 0 0 0"
-                   IsReadOnly="True">
-            </TextBox>
+                   Margin="9,30,0,0"
+                   Padding="5 0 0 0">
+                </TextBlock>
+            </StackPanel>
+
+            
 
             <TextBlock  Text="Start date"
                  Foreground="Black"
