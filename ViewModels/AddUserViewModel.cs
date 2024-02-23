@@ -175,7 +175,7 @@ namespace key_managment_system.ViewModels
                 // Send the email
                 smtpClient.Send(mailMessage);
 
-                MessageBox.Show("Email sent successfully!");
+                MessageBox.Show("User added successfuly and email with RFID sent!");
             }
             catch (Exception ex)
             {

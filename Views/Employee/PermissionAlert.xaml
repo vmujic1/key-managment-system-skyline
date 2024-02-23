@@ -40,45 +40,10 @@
                    FontSize="13"
                    FontWeight="Bold"
                             />
-       
-
-        <Button x:Name="btnClose"
-        BorderThickness="0"
-        Content="X"
-        Foreground="White"
-        FontSize="16"
-        FontFamily="Montserrat"
-        Cursor="Hand"
-        Grid.Column="3"
-        Click="btnClose_Click"
-        Height="25"
-        VerticalAlignment="Top">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="Navy"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="Black"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="18" 
-Height="18"
-CornerRadius="9"
-Background="{TemplateBinding Background}">
-                        <ContentPresenter VerticalAlignment="Center"
-              HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
 
         <Button x:Name="btnRequest"
         BorderThickness="0"
-        Content="Request access"
+        Content="Ok"
         Foreground="White"
         FontSize="16"
         FontFamily="Montserrat"

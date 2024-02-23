@@ -71,6 +71,7 @@ namespace key_managment_system.ViewModels
             {
                 user.Username = Username;
                 user.Password = passwordHash;
+                user.CurrentRoomId = 6;
                 await context.SaveChangesAsync();
                 this.IsViewVisible = false;
                 LoginView man = new LoginView();

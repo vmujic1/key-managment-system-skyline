@@ -38,7 +38,7 @@
             <TextBlock Text="Your profile information"
             
             Foreground="Black"
-            FontSize="15"
+            FontSize="20"
             FontWeight="Bold"
             FontFamily="Montserrat"
             TextWrapping="Wrap"
@@ -54,97 +54,89 @@
              TextWrapping="Wrap"
              />
 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="First name:"
+                  Foreground="Black"
+                  FontSize="12"
+                  FontWeight="Bold"
+                  FontFamily="Montserrat"       
+                  Padding="80 0 0 0"
+                  />
 
-            <TextBlock Text="First name"
-            Foreground="Black"
-            FontSize="12"
-            FontWeight="Medium"
-            FontFamily="Montserrat"                             
-            Margin="0,15,0,0"/>
+                <TextBlock x:Name="txtFirstName"
+                Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="Black"
+                Height="28"
+                           Margin="5 0 0 0"
+                           >
+                </TextBlock>
+            </StackPanel>
 
-            <TextBox x:Name="txtFirstName"
-          Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
-          FontSize="13"
-          FontWeight="Medium"
-          FontFamily="Montserrat"                            
-          Foreground="Black"
-          CaretBrush="LightGray"
-          BorderBrush="DarkGray"
-          BorderThickness="0,0,0,2"
-          Height="28"
-          VerticalContentAlignment="Center"
-          Margin="0 5 0 0"
-          Padding="5 0 0 0">
-            </TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Last Name:"
+      Foreground="Black"
+      FontSize="12"
+      FontWeight="Bold"
+      FontFamily="Montserrat"  
+                           Padding="80 0 0 0"
+      />
 
-            <TextBlock  Text="Last name"
-                    Foreground="Black"
-                    FontSize="12"
-                    FontWeight="Medium"
-                    FontFamily="Montserrat"                             
-                    Margin="0,30,0,0"/>
+                <TextBlock x:Name="txtLastName"
+                Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"                            
+                Foreground="Black"
+                Height="28"
+               Margin="5 0 0 0">
+                </TextBlock>
+            </StackPanel>
 
-            <TextBox x:Name="txtLastName"
-              Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
-              FontSize="13"
-              FontWeight="Medium"
-              FontFamily="Montserrat"                            
-              Foreground="Black"
-              CaretBrush="LightGray"
-              BorderBrush="DarkGray"
-              BorderThickness="0,0,0,2"
-              Height="28"
-              VerticalContentAlignment="Center"
-              Margin="0 5 0 0"
-              Padding="5 0 0 0">
-            </TextBox>
 
-            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Keycard Serial Number:"
+Foreground="Black"
+FontSize="12"
+FontWeight="Bold"
+FontFamily="Montserrat"             
+                           Padding="80 0 0 0"
+/>
 
-            <TextBlock  Text="Keycard ID"
-                    Foreground="Black"
-                    FontSize="12"
-                    FontWeight="Medium"
-                    FontFamily="Montserrat"                             
-                    Margin="0,30,0,0"/>
-
-            <TextBox x:Name="txtKeycardId"
+                <TextBlock x:Name="txtKeyCardId"
           Text="{Binding KeycardId, UpdateSourceTrigger=PropertyChanged}"
           FontSize="13"
           FontWeight="Medium"
           FontFamily="Montserrat"                            
           Foreground="Black"
-          CaretBrush="LightGray"
-          BorderBrush="DarkGray"
-          BorderThickness="0,0,0,2"
           Height="28"
-          VerticalContentAlignment="Center"
-          Margin="0 5 0 0"
-          Padding="5 0 0 0">
-            </TextBox>
+         Margin="5 0 0 0">
+                </TextBlock>
+            </StackPanel>
 
-            <TextBlock  Text="Role"
-        Foreground="Black"
-        FontSize="12"
-        FontWeight="Medium"
-        FontFamily="Montserrat"                             
-        Margin="0,30,0,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Role:"
+                  Foreground="Black"
+                  FontSize="12"
+                  FontWeight="Bold"
+                  FontFamily="Montserrat"   
+                           Padding="80 0 0 0"
+                />
 
-            <TextBox x:Name="txtRole"
-              Text="{Binding Role, UpdateSourceTrigger=PropertyChanged}"
-              FontSize="13"
-              FontWeight="Medium"
-              FontFamily="Montserrat"                            
-              Foreground="Black"
-              CaretBrush="LightGray"
-              BorderBrush="DarkGray"
-              BorderThickness="0,0,0,2"
-              Height="28"
-              VerticalContentAlignment="Center"
-              Margin="0 5 0 0"
-                Padding="5 0 0 0">
-            </TextBox>
+                <TextBlock x:Name="txtRole"
+    Text="{Binding Role, UpdateSourceTrigger=PropertyChanged}"
+    FontSize="13"
+    FontWeight="Medium"
+    FontFamily="Montserrat"                            
+    Foreground="Black"
+    Height="28"
+               Margin="5 0 0 0">
+                </TextBlock>
+            </StackPanel>
 
+            
 
 
 
