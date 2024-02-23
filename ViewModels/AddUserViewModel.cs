@@ -94,7 +94,7 @@ namespace key_managment_system.ViewModels
 
                 AccessLevelEnum accessLevel;
                 RoleEnum role;
-                
+
 
                 if (Role.ToString() == RoleEnum.Manager.ToString())
                 {
@@ -147,15 +147,19 @@ namespace key_managment_system.ViewModels
         {
             try
             {
+                // Read email and password from app.config
+                string email = System.Configuration.ConfigurationManager.AppSettings["Email"];
+                string password = System.Configuration.ConfigurationManager.AppSettings["Password"];
+
                 // Set your Gmail SMTP server and credentials
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
                 smtpClient.Port = 587; // Gmail SMTP port
-                smtpClient.Credentials = new NetworkCredential("mujicvedran7@gmail.com", "hjqn ardh rtox baby");
+                smtpClient.Credentials = new NetworkCredential(email, password);
                 smtpClient.EnableSsl = true; // Enable SSL for secure connections
 
                 // Create the email message
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("mujicvedran7@gmail.com");
+                mailMessage.From = new MailAddress(email);
                 mailMessage.To.Add(toEmail);
                 mailMessage.Subject = subject;
 
@@ -179,9 +183,6 @@ namespace key_managment_system.ViewModels
             }
         }
 
-
-
     }
-
 
 }
