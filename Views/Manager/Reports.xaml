@@ -8,6 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <UserControl.DataContext>
+        <viewModel:ReportsViewModel/>
+    </UserControl.DataContext>
+
     <Grid Background="WhiteSmoke">
     <Grid.Resources>
         <!-- Style for DataGridColumnHeader -->
@@ -35,8 +39,23 @@
         </Style>
     </Grid.Resources>
 
-    <!-- Your UserControl content goes here -->
-        <DataGrid x:Name="EmployeesList" Margin="10,0,10,10" AutoGenerateColumns="False" HorizontalContentAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Search by keyword:" Margin="10 24 0 0"></TextBlock>
+
+            <TextBox x:Name="tekst" Height="25" Margin="10 0 0 0" Width="150" Text="{Binding TextFilter, Mode=TwoWay}" />
+
+
+            <Button Command="{Binding FilterCommand}" Click="click_zmirko"  Margin="12 0 0 0" Content="Filter" Height="25" Width="55"></Button>
+            
+        </StackPanel>
+
+        <!-- Your UserControl content goes here -->
+        <DataGrid x:Name="EmployeesList" Grid.Row="1" ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,10,10" AutoGenerateColumns="False" HorizontalContentAlignment="Center">
         <DataGrid.Columns>
             <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="*">
                 <DataGridTextColumn.ElementStyle>
@@ -97,7 +116,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Timestamp" Binding="{Binding TimeStamp}" Width="*">
+                <DataGridTextColumn Header="Timestamp" Binding="{Binding Timestamp}" Width="*">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="HorizontalAlignment" Value="Center"/>
